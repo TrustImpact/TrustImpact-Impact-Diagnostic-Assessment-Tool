@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purpose Alignment Tool Score</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hansard Sentiment Analysis</title>
+<link href="https://trst.uk/css/app.css" rel="stylesheet">
+<!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">-->
+<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap">-->
+<script src="https://kit.fontawesome.com/19a0336ebe.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    body {
+        font-family: 'Raleway', sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #ffffff;
+    }
+    div#form-container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border: 5px solid #f7d32e;
+        max-width: 500px;  /* Adjust this value to your preference */
+        width: 100%;
+        margin: auto;  /* This will center the container */
+    }
+    h1 {
+        color: #ffffff;
+        margin-bottom: 20px;
+    }
+    h2 {
+        color: #5D3FD3;
+    }
+    select {
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        margin-top: 10px;
+    }
+    button {
+        background-color: #5D3FD3;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+    button:hover {
+        background-color: #4c32cc;
+    }
+    .containers-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Or 'space-between' as per your design needs */
+    align-items: flex-start;
+    width: 100%;
+    }
+    .container {
+    flex: 0 0 30%; /* Each box will take up roughly 30% of the container width */
+    margin: 10px; /* Adjust as needed for spacing */
+    /* Other styling as needed */
+    }
+    .output-score {
+        display: none;
+    }
+    /* Style for the container score */
+    .container-score {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #e9e9e9;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="containers-row">
+<!-- Purpose Alignment Tool Score Container -->
+<div id="PurposeAlignmentToolScore" class="container">
+    <h2>Purpose Alignment Tool Score</h2>
+    <p>What was your team's alignment to purpose score?</p>
+    <select id="alignmentScoreSelect" onchange="calculateScore('alignmentScoreSelect', 'outputPurposeAlignmentScore')">
+        <option value="1">0-20</option>
+        <option value="2">21-40</option>
+        <option value="3">41-60</option>
+        <option value="4">61-80</option>
+        <option value="5">81-100</option>
+    </select>
+    <div class="output-score">
+        Purpose Alignment Score: <span id="outputPurposeAlignmentScore">1</span>
+    </div>
+</div>
+
+
+<!-- Purpose Statement Assessment Container -->
+<div id="PurposeStatementAssessmentScore" class="container">
+    <h2>Purpose Statement Assessment</h2>
+    
+    <!-- Each question now has its own unique select id and corresponding output span id -->
+    <div class="question">
+        <p>What is the length of the Purpose Statement?</p>
+        <select id="lengthScoreSelect" onchange="calculateScore('lengthScoreSelect', 'outputLengthScore')">
+            <option value="2">Under 10 words</option>
+            <option value="1">11 to 20 words</option>
+            <option value="0">over 21 words</option>
+        </select>
+        <div class="output-score">
+            Length Score: <span id="outputLengthScore">2</span>
+        </div>
+    </div>
+
+
+    <!--<div id="Use of Common Words" class="container">
+    <h2>Use of Common Words</h2>-->
+    <p>To what extend are common words such as "Support' used?</p>
+    <select id="commonwordsselect" onchange="calculateScore('commonwordsselect', 'outputcommonwordScore')">
+        <option value="2">none</option>
+        <option value="1">one</option>
+        <option value="0">two or more</option>
+    </select>
+    <div class="output-score">
+        Common words Score: <span id="outputcommonwordScore">1</span> <!-- Default score -->
+    </div>
+<!--</div>-->
+
+
+    <p>Is this statement unique to you and could not be used by another organisation?</p>
+    <select id="uniqueselect" onchange="calculateScore('uniqueselect', 'outputuniqueScore')">
+        <option value="2">Yes</option>
+        <option value="0">No</option>
+    </select>
+    <div class="output-score">
+        Uniqueness Score: <span id="outputuniqueScore">1</span> <!-- Default score -->
+    </div>
+<!--</div>-->
+
+
+    <p>Is the statement free from use of jargon or unclear language?</p>
+    <select id="jargonselect" onchange="calculateScore('jargonselect', 'outputjargonScore')">
+        <option value="2">Yes</option>
+        <option value="0">No</option>
+    </select>
+    <div class="output-score">
+        Clarity Score: <span id="outputjargonScore">1</span> <!-- Default score -->
+    </div>
+<!--</div>-->
+
+
+    <p>Is the statement focussed?</p>
+    <select id="focusselect" onchange="calculateScore('focusselect', 'outputfocusScore')">
+        <option value="2">Yes - very focussed</option>
+        <option value="1">Partially</option>
+        <option value="0">No</option>
+    </select>
+    <div class="output-score">
+        Focus Score: <span id="outputfocusScore">1</span> <!-- Default score -->
+    </div>
+</div>
+
+
+<div id="ImpactLeadershipScore" class="container">
+    <h2>Impact Leadership Assessment</h2>
+    <p>Is impact genuinely led from the top?</p>
+    <select id="impactledselect" onchange="calculateScore('impactledselect', 'outputledScore')">
+        <option value="2">Yes</option>
+        <option value="1">Partially</option>
+        <option value="0">No</option>
+    </select>
+    <div class="output-score">
+        Impact Led Score: <span id="outputledScore">1</span> <!-- Default score -->
+    </div>
+
+    <p>Is there appetite for being impact-led?</p>
+    <select id="appetiteselect" onchange="calculateScore('appetiteselect', 'outputappetiteScore')">
+        <option value="2">Yes</option>
+        <option value="1">Some but not consistently</option>
+        <option value="0">No</option>
+    </select>
+    <div class="output-score">
+        Impact appetite Score: <span id="outputappetiteScore">1</span> <!-- Default score -->
+    </div>
+
+    
+    <p>Have they/you already undertaken elements of impact work and have no desire to repeat it?</p>
+    <select id="desireselect" onchange="calculateScore('desireselect', 'outputdesireScore')">
+        <option value="2">No</option>
+        <option value="1">Yes but keen to repeat</option>
+        <option value="0">Yes and likely to meet resistence to change</option>
+    </select>
+    <div class="output-score">
+        Impact desire Score: <span id="outputdesireScore">1</span> <!-- Default score -->
+    </div>
+
+
+    <p>Is the impact already embedded culturally across the whole organisation?</p>
+    <select id="cultureselect" onchange="calculateScore('cultureselect', 'outputcultureScore')">
+        <option value="2">Yes</option>
+        <option value="1">Partly</option>
+        <option value="0">No</option>
+    </select>
+    <div class="output-score">
+        Impact culture Score: <span id="outputcultureScore">1</span> <!-- Default score -->
+    </div>
+
+    <p>Are there any blockers at senior level, or organisational challenges that will prevent completing this work effectively?</p>
+    <select id="blockersselect" onchange="calculateScore('blockersselect', 'outputblockerscore')">
+        <option value="2">none</option>
+        <option value="1">possibly</option>
+        <option value="0">definitely</option>
+    </select>
+    <div class="output-score">
+        Impact blocker Score: <span id="outputblockerscore">1</span> <!-- Default score -->
+    </div>
+</div>
+
+
+<div id="ToCScore" class="container">
+    <h2>Theory of Change Assessment</h2>
+    <p>Do you have a complete Theory of Change?</p>
+    <select id="TOCselect" onchange="calculateScore('TOCselect', 'outputTOCScore')">
+        <option value="0">No</option>
+        <option value="1">Partial/Incomplete</option>
+        <option value="0">Yes</option>
+    </select>
+    <div class="output-score">
+        ToC Score: <span id="outputTOCScore">1</span> <!-- Default score -->
+    </div>
+
+    <p>Is your Theory of Change used to drive the organisation?</p>
+    <select id="orgdriveselect" onchange="calculateScore('orgdriveselect', 'outputorgdriveScore')">
+        <option value="2">Yes</option>
+        <option value="0">No</option>
+    </select>
+    <div class="output-score">
+        ToC use Score: <span id="outputorgdriveScore">1</span> <!-- Default score -->
+    </div>
+
+    
+    <p>Can your Theory of Change be revisited if neccessary?</p>
+    <select id="upforchangeselect" onchange="calculateScore('upforchangeselect', 'outputupforchangeScore')">
+        <option value="2">Yes</option>
+        <option value="0">No</option>
+    </select>
+    <div class="output-score">
+        Ameniability Score: <span id="outputupforchangeScore">1</span> <!-- Default score -->
+    </div>
+
+
+    <p>Is it complex, i.e. more than one page, multiple lanes or confusing to look at?</p>
+    <select id="complexselect" onchange="calculateScore('complexselect', 'outputcomplexScore')">
+        <option value="0">Very</option>
+        <option value="1">A little</option>
+        <option value="2">No</option>
+    </select>
+    <div class="output-score">
+        ToC Complexity Score: <span id="outputcomplexScore">1</span> <!-- Default score -->
+    </div>
+
+
+    <p>Is the impact actually impact and the outcomes actually outcomes?</p>
+    <select id="correctlydefinedselect" onchange="calculateScore('correctlydefinedselect', 'outputcorrectlydefinedscore')">
+        <option value="2">Yes</option>
+        <option value="1">one but not both</option>
+        <option value="0">No</option>
+    </select>
+    <div class="output-score">
+        Definitions Score: <span id="outputcorrectlydefinedscore">1</span> <!-- Default score -->
+    </div>
+</div>
+
+
+<div id="MWMScore" class="container">
+    <h2>Measurement Framework Assessment</h2>
+    <p>On a scale of 0-5, Is your framework feasable, cost effective, time efficient, resource appropriate and producing good quality, and reliable data?</p>
+    <select id="MWMfeasibilityselect" onchange="calculateScore('MWMfeasibilityselect', 'outputMWMfeasibleScore')">
+        <option value="0">0 - Not feasible, effective, efficient, appropriate or producing reliable data </option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Highly feasible, effective, efficient, appropriate and producing reliable data </option>
+    </select>
+    <div class="output-score">
+        MWM feasibility Score: <span id="outputMWMfeasibleScore">1</span> <!-- Default score -->
+    </div>
+
+    
+        <p>How many impact indicators are you measuring?</p>
+    <select id="numberofindicatorsselect" onchange="calculateScore('numberofindicatorsselect', 'outputnumberofindicatorsScore')">
+        <option value="0"> none </option>
+        <option value="5">1 to 5</option>
+        <option value="4">6 to 10</option>
+        <option value="3">11 to 15</option>
+        <option value="2">15 to 20</option>
+        <option value="1">20+</option>
+    </select>
+    <div class="output-score">
+        MWM count of indicators Score: <span id="outputnumberofindicatorsScore">1</span> <!-- Default score -->
+    </div>
+
+
+        <p>What percentage of these are outputs rather than outcomes?</p>
+    <select id="percentageofindicatorsselect" onchange="calculateScore('percentageofindicatorsselect', 'outputpercentageofindicatorsScore')">
+        <option value="5">0 to 20%</option>
+        <option value="4">21% to 40%</option>
+        <option value="3">41% to 60%</option>
+        <option value="2">61% to 80%</option>
+        <option value="1">81% to 99%</option>
+        <option value="0">100%</option>
+    </select>
+    <div class="output-score">
+        MWM percentage of indicators Score: <span id="outputpercentageofindicatorsScore">1</span> <!-- Default score -->
+    </div>
+
+
+        <p>Are your indicators based on validated data?</p>
+    <select id="validatedindicatorsselect" onchange="calculateScore('validatedindicatorsselect', 'outputvalidatedindicatorsScore')">
+        <option value="5">All</option>
+        <option value="4">Most</option>
+        <option value="3">Some</option>
+        <option value="2">A few</option>
+        <option value="1">Not really</option>
+        <option value="0">No</option>
+    </select>
+    <div class="output-score">
+        MWM percentage of indicators Score: <span id="outputvalidatedindicatorsScore">1</span> <!-- Default score -->
+    </div>
+</div>
+
+    <!-- ... additional questions follow the same pattern ... -->
+    
+<!-- Score Summary Table -->
+<div id="scoreSummary">
+    <h2>Score Summary</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Container</th>
+                <th>Average Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Purpose Alignment Tool Score</td>
+                <td id="totalPurposeAlignmentToolScore">0</td>
+            </tr>
+            <tr>
+                <td>Purpose Statement Assessment Score</td>
+                <td id="totalPurposeStatementAssessmentScore">0</td>
+            </tr>
+            <tr>
+                <td>Impact Leadership Score</td>
+                <td id="totalImpactLeadershipScore">0</td>
+            </tr>
+            <tr>
+                <td>Theory of Change Score</td>
+                <td id="totalToCScore">0</td>
+            </tr>
+            <tr>
+                <td>Measurement Framework Score</td>
+                <td id="totalMWMScore">0</td>
+            </tr>
+            <!-- ... Add more rows for other containers as needed ... -->
+        </tbody>
+    </table>
+</div>
+</div>
+
+
+    <!-- The button to generate the radar chart should probably be here -->
+    <button onclick="generateRadarChart()">Generate Radar Chart</button>
+</div>
+
+<!-- Radar Chart Container -->
+<div>
+    <canvas id="myRadarChart" width="800" height="800"></canvas>
+</div>
+
+
+<!-- ... script tag ... -->
+
+<script>
+// ... other parts of the JavaScript above ...
+
+// Function to calculate and display score based on the selected option
+function calculateScore(selectId, outputId) {
+    var selectElement = document.getElementById(selectId);
+    var score = parseInt(selectElement.value, 10);
+    document.getElementById(outputId).textContent = score; // Update the hidden span with the score
+
+    // Call updateScoreTable here with the container ID and the new score
+    var containerId = selectElement.closest('.container').id;
+    updateScoreTable(containerId);
+}
+
+// Function to update the score table with new values
+function updateScoreTable(containerId) {
+    var container = document.getElementById(containerId);
+    var selects = container.querySelectorAll('select');
+    
+    // Check if there are select elements to avoid division by zero
+    if (selects.length === 0) return;
+
+    var totalScore = 0;
+    selects.forEach(function(select) {
+        totalScore += parseInt(select.value, 10);
+    });
+
+    // Calculate the average score
+    var averageScore = totalScore / selects.length;
+
+    // Round the average score to a desired number of decimal places, e.g., 2
+    averageScore = averageScore.toFixed(1);
+
+    var scoreCellId = 'total' + containerId;
+    var scoreCell = document.getElementById(scoreCellId);
+    if (scoreCell) {
+        scoreCell.textContent = averageScore;
+    }
+}
+
+// Initialize the score table with the default scores
+function initializeScoreTable() {
+    var containerDivs = document.querySelectorAll('.container');
+    containerDivs.forEach(function(container) {
+        updateScoreTable(container.id);
+    });
+}
+
+// Call this function once to initialize the table at script load
+initializeScoreTable();
+
+function getAverageScores() {
+    var averageScores = [];
+    var scoreCells = document.querySelectorAll('#scoreSummary tbody td:nth-child(2)'); // Selects every second cell in each row of the tbody
+
+    scoreCells.forEach(function(cell) {
+        averageScores.push(parseFloat(cell.textContent)); // Convert the text content to a float and add to the array
+    });
+
+    return averageScores;
+}
+
+function generateRadarChart() {
+    var ctx = document.getElementById('myRadarChart').getContext('2d');
+    var averageScores = getAverageScores(); // Get the average scores
+
+    var chart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['Purpose Alignment', 'Purpose Statement', 'Impact Leadership', 'Theory of Change', 'Measurement Framework'], // Adjust these labels as per your containers
+            datasets: [{
+                label: 'Average Scores',
+                data: averageScores,
+                backgroundColor: 'rgba(93, 63, 211, 0.2)', // Example color, adjust as needed
+                borderColor: 'rgba(93, 63, 211, 1)', // Example color, adjust as needed
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scale: {
+                ticks: {
+                    beginAtZero: true,
+                    max: 5 // Assuming the maximum average score is 5
+                }
+            }
+        }
+    });
+}
+
+
+// ... rest of the JavaScript functions ...
+</script>
+
+</body>
+</html>
