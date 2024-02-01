@@ -469,12 +469,19 @@ function generateRadarChart() {
             }]
         },
         options: {
-            scale: {
-                ticks: {
-                    beginAtZero: true,
-                    max: 5, // Assuming the maximum average score is 5
-                    min: 0,
-                    stepSize: 0.5
+            scales: {
+                r: {
+                    angleLines: {
+                        display: true
+                    },
+                    suggestedMin: 0, // Suggests the minimum value for the scale
+                    suggestedMax: 5, // Suggests the maximum value for the scaleoptions: {
+                    ticks: {
+                        beginAtZero: true,
+                        max: 5, // Assuming the maximum average score is 5
+                        min: 0,
+                        stepSize: 0.5
+                    }
                 }
             }
         }
