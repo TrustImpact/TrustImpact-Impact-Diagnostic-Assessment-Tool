@@ -334,10 +334,238 @@
         <option value="0">No</option>
     </select>
     <div class="output-score">
-        MWM percentage of indicators Score: <span id="outputvalidatedindicatorsScore">1</span> <!-- Default score -->
+        MWM Validated indicators Score: <span id="outputvalidatedindicatorsScore">1</span> <!-- Default score -->
+    </div>
+
+
+        <p>Do your indicators have external data to which you can compare?</p>
+    <select id="externalddataselect" onchange="calculateScore('externalddataselect', 'outputexternaldataScore')">
+        <option value="5">Yes, to externally validated live data</option>
+        <option value="4">Yes, to externally validated data updated monthly or quarterly</option>
+        <option value="3">Yes, to an annual survey</option>
+        <option value="2">Yes, but only to a static study</option>
+        <option value="1">No, only against our own data</option>
+        <option value="0">No</option>
+    </select>
+    <div class="output-score">
+        MWM indicators comparison Score: <span id="outputexternaldataScore">1</span> <!-- Default score -->
+    </div>
+
+
+        <p>Do you ask demographics questions to understand your reach?</p>
+    <select id="reachdataselect" onchange="calculateScore('reachdataselect', 'outputreachdataScore')">
+        <option value="5">Yes, we collect in line with research aligned to acceptability and langauge appropriate to our target population</option>
+        <option value="4">Yes we collect in line with advise from researchers</option>
+        <option value="3">Yes, we collect annonymous demographics in line with GDPR</option>
+        <option value="2">Yes, we collect what our funder asks us to collect</option>
+        <option value="1">Yes we collect information but immediately delete</option>
+        <option value="0">No</option>
+    </select>
+    <div class="output-score">
+        MWM demographics Score: <span id="outputreachdataScore">1</span> <!-- Default score -->
+    </div>
+
+
+        <p>Do your demographics help you examine your outcome data to better understand who you are maximising impact for?</p>
+    <select id="segmentselect" onchange="calculateScore('segmentselect', 'outputsegmentScore')">
+        <option value="5">Yes, I am able to use multiple demographics to examine clients against outcome indicators</option>
+        <option value="3">Yes, I am able to see my data through a single demographic lens</option>
+        <option value="1">I cannot examine my impact by client type, I only collect reach data</option>
+        <option value="0">I dont collect any data for reach or impact</option>
+    </select>
+    <div class="output-score">
+        MWM Segmentation Score: <span id="outputsegmentScore">1</span> <!-- Default score -->
+    </div>
+
+
+        <p>Is your methodology for data analysis the best it could be</p>
+    <select id="methodologyselect" onchange="calculateScore('methodologyselect', 'outputmethodologyScore')">
+        <option value="5">I am collecting data aligned to outcomes and comparing it to populations that don't receive our intervention</option>
+        <option value="4">We are collecting data aligned to outcomes at pre, post, and follow time periods</option>
+        <option value="3">We are collecting outcome data only post intervention</option>
+        <option value="2">We are collecting data for quality assurance purposes not impact measurement</option>
+        <option value="1">We are only collecting qualitative data such as case studies</option>
+        <option value="0">We are not collecting either quantiative or qualitative impact data</option>
+    </select>
+    <div class="output-score">
+        MWM collection methods Score: <span id="outputmethodologyScore">1</span> <!-- Default score -->
     </div>
 </div>
 
+
+<div id="DataScore" class="container">
+    <h2>Data Assessment</h2>
+    <p>Do you use defined and structured data fields rather than free text?</p>
+    <select id="Datastructureselect" onchange="calculateScore('Datastructureselect', 'outputDataStructureScore')">
+        <option value="0">All free text fields</option>
+        <option value="1">Some structured fields but some unstructured</option>
+        <option value="2">All appropriate fields defined and structured</option>
+    </select>
+    <div class="output-score">
+        Data Structure Score: <span id="outputDataStructureScore">1</span> <!-- Default score -->
+    </div>
+
+
+    <p>Do you use unique identifiers to be able to look at the progress your participants make?</p>
+    <select id="Datauniquedataselect" onchange="calculateScore('Datauniquedataselect', 'outputuniquedataScore')">
+        <option value="0">No identifiers</option>
+        <option value="1">No consistent identifiers used but possible to identify records using another field(s) (e.g. name and post code combo)</option>
+        <option value="2">Unique identifiers used in some systems</option>
+        <option value="3">System generated unique identifiers in all tables across database allowing for relationships between all relevant tables</option>
+    </select>
+    <div class="output-score">
+        Data Uniqueness Score: <span id="outputuniquedataScore">1</span> <!-- Default score -->
+    </div>
+
+
+    <p>How "data savvy" are users?</p>
+    <select id="Dataexpertiseselect" onchange="calculateScore('Dataexpertiseselect', 'outputexpertiseScore')">
+        <option value="0">Minimal</option>
+        <option value="1">Medium</option>
+        <option value="2">High</option>
+        <option value="3">Expert</option>
+    </select>
+    <div class="output-score">
+        Data Savvy Score: <span id="outputexpertiseScore">1</span> <!-- Default score -->
+    </div>
+
+
+    <p>What is the level of completeness of your data?</p>
+    <select id="Datacompletenessselect" onchange="calculateScore('Datacompletenessselect', 'outputcompletenessScore')">
+        <option value="0">No useful data</option>
+        <option value="1">Small number of records AND under 50% completeness</option>
+        <option value="2">Large number of records with under 50% completeness OR small number of records with over 80% completeness</option>
+        <option value="3">Up to 100% completeness</option>
+    </select>
+    <div class="output-score">
+        Data Completeness Score: <span id="outputcompletenessScore">1</span> <!-- Default score -->
+    </div>
+
+    <p>Are your datapoints timestamped?</p>
+    <select id="Datatimestampselect" onchange="calculateScore('Datatimestampselect', 'outputtimestampScore')">
+        <option value="0">No way of determining when datapoints are logged or the date they refer to</option>
+        <option value="1">There are some date fields that could be used to estimate timelines</option>
+        <option value="2">Use of one or more date fields (can be system generated) to accurately indicate all relevant timepoints within the process (e.g. start, review, completion)</option>
+    </select>
+    <div class="output-score">
+        Data timepoints Score: <span id="outputtimestampScore">1</span> <!-- Default score -->
+    </div>
+
+
+    <p>Is data structure and format consistent over time?</p>
+    <select id="Dataconsistencyselect" onchange="calculateScore('Dataconsistencyselect', 'outputconsistencyScore')">
+        <option value="0">Data structure regularly changes so no consistency over time</option>
+        <option value="1">Some core fields remain pretty much constant whilst others may change</option>
+        <option value="2">Data structure is formal and consistent with permanently defined fields. New fields may be added but not overwritten. Any updates to existing fields go through a formal process and data updated accordingly</option>
+    </select>
+    <div class="output-score">
+        Data consistency Score: <span id="outputconsistencyScore">1</span> <!-- Default score -->
+    </div>
+
+
+    <p>Is data currently being effectively collected and reported on?</p>
+    <select id="Dataeffectivenessselect" onchange="calculateScore('Dataeffectivenessselect', 'outputeffectivenessScore')">
+        <option value="0">No formal quantitative reporting and no consistent data collection</option>
+        <option value="1">Basic data collected manually, usually operational outputs. Reported either qualitatively or in basic Excel tables</option>
+        <option value="2">Formal data collection to produce consistent data. Attempt to measure and report outcomes not just outputs. Reported in a consistent format either through structured Excel report or another reporting tool</option>
+        <option value="3">Effective data collection with a range of consistent datapoint relating to outputs and outcomes. Data stored properly (database ideally) and pulled into clearly defined reporting in a data vis tool that is live, well maintained and provides deep insight</option>
+    </select>
+    <div class="output-score">
+        Data effectiveness Score: <span id="outputeffectivenessScore">1</span> <!-- Default score -->
+    </div>
+
+
+    <p>Is data captured/input manually or automatically?</p>
+    <select id="Dataautomaticityselect" onchange="calculateScore('Dataautomaticityselect', 'outputautomaticityScore')">
+        <option value="0">Data captured manually either on paper, verbally by staff or purely in notes</option>
+        <option value="1">Data input manually into a digital system by staff after relevant activity</option>
+        <option value="2">Data flows from source to storage system automatically. Any input is digital first wherever possible and well streamlined</option>
+    </select>
+    <div class="output-score">
+        Data automaticity Score: <span id="outputautomaticityScore">1</span> <!-- Default score -->
+    </div>
+
+
+    <p>Does the client capture demographic data effectively?</p>
+    <select id="Datademographicsselect" onchange="calculateScore('Datademographicsselect', 'outputdatademographicsScore')">
+        <option value="0">Little to no demographic data effectively collected</option>
+        <option value="1">Core demographic data collected but not always aligned to ONS, may only exist in one system (CRM) and not possible to link to others, may be missing demographic details relevant to the specific use case</option>
+        <option value="2">Range of demographic data collected as default for all relevant clients/beneficiaries, aligns to any external datasets needed, can be linked across datasets</option>
+    </select>
+    <div class="output-score">
+        Data demographics Score: <span id="outputdatademographicsScore">1</span> <!-- Default score -->
+    </div>
+</div>
+
+
+<div id="SystemScore" class="container">
+    <h2>System Assessment</h2>
+    <p>Is the number of systems being operated appropriate for the organisation?</p>
+    <select id="numberofsystemsselect" onchange="calculateScore('numberofsystemsselect', 'outputnumberofsystemsScore')">
+        <option value="0">No formal system in place. Reliance on basic tools and Excel</option>
+        <option value="1">One or two core systems being used. Still some reliance on other basic tools to fill in gaps</option>
+        <option value="2">Suitable number of systems for the work being done with appropriate infrastructure in place to manage and maintain them</option>
+    </select>
+    <div class="output-score">
+        System appropriateness Score: <span id="outputnumberofsystemsScore">1</span> <!-- Default score -->
+    </div>
+
+
+    <p>Are the systems modern and fit for purpose?</p>
+    <select id="systemfitnessselect" onchange="calculateScore('systemfitnessselect', 'outputsystemfitnessScore')">
+        <option value="0">No formal system(s) in place and dependence on basic tools to fill gaps (Excel etc)</option>
+        <option value="1">One or two modern systems that can be effective but not used effectively / being used for too much. Use of legacy systems that are difficult to use/maintain and lack modern functionality</option>
+        <option value="2">Systems in use are appropriate for their requirements, should not need replacing in next 2 years. Likely industry standard tools or well reasoned alternatives and likely Cloud based</option>
+    </select>
+    <div class="output-score">
+        System fitness Score: <span id="outputsystemfitnessScore">1</span> <!-- Default score -->
+    </div>
+
+
+    <p>Does the organisation have the appropriate personnel and support in place to run their systems?</p>
+    <select id="systempersonnelselect" onchange="calculateScore('systempersonnelselect', 'outputsystempersonnelScore')">
+        <option value="0">No IT or data specific roles exist</option>
+        <option value="1">Some IT and data responsibilities in place but generally built in to broader roles. May be owned by someone without the right skillset</option>
+        <option value="2">Some dedicated IT and/or data roles with reasonable skillset and control of systems</option>
+        <option value="3">Appropriate number of experts in place dedicated to maintanence of relevant systems and data</option>
+    </select>
+    <div class="output-score">
+        System Personnel Score: <span id="outputsystempersonnelScore">1</span> <!-- Default score -->
+    </div>
+
+
+    <p>Is it possible for the client to customise impact relevant systems or does this require support?</p>
+    <select id="systempcustomisationselect" onchange="calculateScore('systempcustomisationselect', 'outputsystemcustomisationScore')">
+        <option value="0">Very little customisation possible at all</option>
+        <option value="1">Customisation possible but requires long lead times and can be costly</option>
+        <option value="2">Systems owned by client and their IT team able to effectively customise where required</option>
+    </select>
+    <div class="output-score">
+        System Customisation Score: <span id="outputsystemcustomisationScore">1</span> <!-- Default score -->
+    </div>
+
+
+    <p>Do systems talk to each other and/or is there a central data warehouse?</p>
+    <select id="systemconnectivityselect" onchange="calculateScore('systemconnectivityselect', 'outputsystemconnectivityScore')">
+        <option value="0">Siloed systems, may lack any identifiers, APIs or ways of interacting</option>
+        <option value="1">Some possibility for basic system "integration". Often requires some effort like exporting datasets and joining them in Excel, importing data from one system to another manually etc</option>
+        <option value="2">Automated integration between systems. May include a data warehouse if needed or could be a central system (e.g. Salesforce) that pulls data from other systems itself</option>
+    </select>
+    <div class="output-score">
+        System Connectivity Score: <span id="outputsystemconnectivityScore">1</span> <!-- Default score -->
+    </div>
+
+
+    <p>How long has the client been using/operating their systems? (speaks to both experience and history)</p>
+    <select id="systemageselect" onchange="calculateScore('systemageselect', 'outputsystemageScore')">
+        <option value="0">In process of selecting or moving on to new system(s)</option>
+        <option value="1">Recently moved onto new system(s)</option>
+        <option value="2">System(s) have been operational for a reasonable length of time and are BAU and have history</option>
+    </select>
+    <div class="output-score">
+        System Age Score: <span id="outputsystemageScore">1</span> <!-- Default score -->
+    </div>
+</div>
     <!-- ... additional questions follow the same pattern ... -->
     
 <!-- Score Summary Table -->
@@ -370,6 +598,14 @@
             <tr>
                 <td>Measurement Framework Score</td>
                 <td id="totalMWMScore">0</td>
+            </tr>
+            <tr>
+                <td>Data Review Score</td>
+                <td id="totalDataScore">0</td>
+            </tr>
+            <tr>
+                <td>System Review Score</td>
+                <td id="totalSystemScore">0</td>
             </tr>
             <!-- ... Add more rows for other containers as needed ... -->
         </tbody>
