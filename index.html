@@ -372,6 +372,8 @@
 
     <h4>To what extent would you agree that your organisation has a culture of understanding and measuring impact?</h4>
     <br>
+    <br>
+    <br>
     <select id="blockersselect" onchange="calculateScore('blockersselect', 'outputblockerscore')">
             <option value="0">Please Select</option>
             <option value="0">0 - Not at all</option>
@@ -416,7 +418,6 @@
     <h1>Theory of Change Assessment</h1>
     <h4>On a scale of 0 - 10 how complete do you believe your theory of change is?</h4>
     <p>(Does it include your resources, activities, outputs, outcomes, and impact?)</p>
-    <br>
     <select id="TOCselect" onchange="calculateScore('TOCselect', 'outputTOCScore')">
             <option value="0">Please Select</option>
             <option value="0">0 - Not at all</option>
@@ -500,6 +501,7 @@
 
     <h4>To what extent would you agree that the measures in your theory of change are measures of impact and not measures of reach?</h4>
     <br>
+    <br>
     <select id="correctlydefinedselect" onchange="calculateScore('correctlydefinedselect', 'outputcorrectlydefinedscore')">
             <option value="0">Please Select</option>
             <option value="0">0 - Not at all</option>
@@ -522,7 +524,8 @@
 
 <div id="MWMScore" class="container">
     <h1>Measurement Framework Assessment</h1>
-    <p>On a scale of 0-5, Is your framework feasable, cost effective, time efficient, resource appropriate and producing good quality, and reliable data?</p>
+    <h4>On a scale of 0-10, Is your framework feasable, cost effective, time efficient, resource appropriate and producing good quality, and reliable data?</h4>
+    <br>
     <select id="MWMfeasibilityselect" onchange="calculateScore('MWMfeasibilityselect', 'outputMWMfeasibleScore')">
             <option value="0">Please Select</option>
             <option value="0">0 - Not at all</option>
@@ -542,47 +545,50 @@
     </div>
 
     
-        <p>How many impact indicators are you measuring?</p>
+    <h4>To what extend do you feel you are measuring too many things?</h4>
+    <br>
     <select id="numberofindicatorsselect" onchange="calculateScore('numberofindicatorsselect', 'outputnumberofindicatorsScore')">
             <option value="0">Please Select</option>
-            <option value="0">0 - Not at all</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+            <option value="10">0 - Not at all</option>
+            <option value="9">1</option>
+            <option value="8">2</option>
+            <option value="7">3</option>
+            <option value="6">4</option>
             <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10 - Extremely</option>
+            <option value="4">6</option>
+            <option value="3">7</option>
+            <option value="2">8</option>
+            <option value="1">9</option>
+            <option value="0">10 - Extremely</option>
     </select>
     <div class="output-score">
         MWM count of indicators Score: <span id="outputnumberofindicatorsScore">0</span> <!-- Default score -->
     </div>
 
 
-        <p>What percentage of these are outputs rather than outcomes?</p>
+    <h4>To what extent do you feel that you are collecting only output rather than outcome measures?</h4>
+    <br>
     <select id="percentageofindicatorsselect" onchange="calculateScore('percentageofindicatorsselect', 'outputpercentageofindicatorsScore')">
             <option value="0">Please Select</option>
-            <option value="0">0 - Not at all</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+            <option value="10">0 - Not at all</option>
+            <option value="9">1</option>
+            <option value="8">2</option>
+            <option value="7">3</option>
+            <option value="6">4</option>
             <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10 - Extremely</option>
+            <option value="4">6</option>
+            <option value="3">7</option>
+            <option value="2">8</option>
+            <option value="1">9</option>
+            <option value="0">10 - Extremely</option>
     </select>
     <div class="output-score">
         MWM percentage of indicators Score: <span id="outputpercentageofindicatorsScore">0</span> <!-- Default score -->
     </div>
 
 
-        <p>Are your indicators based on validated data?</p>
+    <h4>To what extent do you believe your outcomes measures are based on validated scales?</h4>
+    <br>
     <select id="validatedindicatorsselect" onchange="calculateScore('validatedindicatorsselect', 'outputvalidatedindicatorsScore')">
             <option value="0">Please Select</option>
             <option value="0">0 - Not at all</option>
@@ -602,7 +608,9 @@
     </div>
 
 
-        <p>Do your indicators have external data to which you can compare?</p>
+    <h4>To what extent do you feel you can compare your organisations impact to others?</h4>
+    <br>
+    <br>
     <select id="externalddataselect" onchange="calculateScore('externalddataselect', 'outputexternaldataScore')">
             <option value="0">Please Select</option>
             <option value="0">0 - Not at all</option>
@@ -622,7 +630,8 @@
     </div>
 
 
-        <p>Do you ask demographics questions to understand your reach?</p>
+    <h4>To what extent are you able to use demographic measures to assess your reaching your target population?</h4>
+    <br>
     <select id="reachdataselect" onchange="calculateScore('reachdataselect', 'outputreachdataScore')">
             <option value="0">Please Select</option>
             <option value="0">0 - Not at all</option>
@@ -642,7 +651,8 @@
     </div>
 
 
-        <p>Do your demographics help you examine your outcome data to better understand who you are maximising impact for?</p>
+    <h4>To what extent are you using factors to interogate your outcome measures by characteristic?</h4>
+    <br>
     <select id="segmentselect" onchange="calculateScore('segmentselect', 'outputsegmentScore')">
             <option value="0">Please Select</option>
             <option value="0">0 - Not at all</option>
@@ -662,7 +672,8 @@
     </div>
 
 
-        <p>Is your methodology for data analysis the best it could be</p>
+<!--<h4>Is your methodology for data analysis the best it could be</h4>
+    <br>
     <select id="methodologyselect" onchange="calculateScore('methodologyselect', 'outputmethodologyScore')">
             <option value="0">Please Select</option>
             <option value="0">0 - Not at all</option>
@@ -678,179 +689,323 @@
             <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        MWM collection methods Score: <span id="outputmethodologyScore">0</span> <!-- Default score -->
-    </div>
+        MWM collection methods Score: <span id="outputmethodologyScore">0</span>  
+    </div>-->
 </div>
 
 
 <div id="DataScore" class="container">
     <h1>Data Assessment</h1>
-    <p>Do you use defined and structured data fields rather than free text?</p>
+    <br>
+    <br>
+    <h4>To what extent do you use defined and structured data fields rather than free text?</h4>
+    <br>
     <select id="Datastructureselect" onchange="calculateScore('Datastructureselect', 'outputDataStructureScore')">
-        <option value="0">All free text fields</option>
-        <option value="1">Some structured fields but some unstructured</option>
-        <option value="2">All appropriate fields defined and structured</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
         Data Structure Score: <span id="outputDataStructureScore">0</span> <!-- Default score -->
     </div>
 
 
-    <p>Do you use unique identifiers to be able to look at the progress your participants make?</p>
+    <h4>To what extend are you able to use your data and systems to track participants over time?</h4>
+    <p>(do you utilse consistent unique identifiers throughout your data and systems?)</p>
     <select id="Datauniquedataselect" onchange="calculateScore('Datauniquedataselect', 'outputuniquedataScore')">
-        <option value="0">No identifiers</option>
-        <option value="1">No consistent identifiers used but possible to identify records using another field(s) (e.g. name and post code combo)</option>
-        <option value="2">Unique identifiers used in some systems</option>
-        <option value="3">System generated unique identifiers in all tables across database allowing for relationships between all relevant tables</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
         Data Uniqueness Score: <span id="outputuniquedataScore">0</span> <!-- Default score -->
     </div>
 
 
-    <p>How "data savvy" are users?</p>
+    <h4>To what extent would you describe your staff as 'data savy'?</h4>
+    <br>
     <select id="Dataexpertiseselect" onchange="calculateScore('Dataexpertiseselect', 'outputexpertiseScore')">
-        <option value="0">Minimal</option>
-        <option value="1">Medium</option>
-        <option value="2">High</option>
-        <option value="3">Expert</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
         Data Savvy Score: <span id="outputexpertiseScore">0</span> <!-- Default score -->
     </div>
 
 
-    <p>What is the level of completeness of your data?</p>
+    <h4>How confident are you that you have complete and useful datasets collected from beneficairies? </h4>
+    <br>
     <select id="Datacompletenessselect" onchange="calculateScore('Datacompletenessselect', 'outputcompletenessScore')">
-        <option value="0">No useful data</option>
-        <option value="1">Small number of records AND under 50% completeness</option>
-        <option value="2">Large number of records with under 50% completeness OR small number of records with over 80% completeness</option>
-        <option value="3">Up to 100% completeness</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
         Data Completeness Score: <span id="outputcompletenessScore">0</span> <!-- Default score -->
     </div>
 
-    <p>Are your datapoints timestamped?</p>
+    <h4>Are you able to get a complete understanding of the process in which you obtain, input, code and analyse data from your beneficiaries?</h4>
+    <p>(Is your data clearly timestamped, the quality checked and updated regularly?)</p>
     <select id="Datatimestampselect" onchange="calculateScore('Datatimestampselect', 'outputtimestampScore')">
-        <option value="0">No way of determining when datapoints are logged or the date they refer to</option>
-        <option value="1">There are some date fields that could be used to estimate timelines</option>
-        <option value="2">Use of one or more date fields (can be system generated) to accurately indicate all relevant timepoints within the process (e.g. start, review, completion)</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
         Data timepoints Score: <span id="outputtimestampScore">0</span> <!-- Default score -->
     </div>
 
 
-    <p>Is data structure and format consistent over time?</p>
+    <h4>Is data structure and format consistent over time?</h4>
+    <br>
     <select id="Dataconsistencyselect" onchange="calculateScore('Dataconsistencyselect', 'outputconsistencyScore')">
-        <option value="0">Data structure regularly changes so no consistency over time</option>
-        <option value="1">Some core fields remain pretty much constant whilst others may change</option>
-        <option value="2">Data structure is formal and consistent with permanently defined fields. New fields may be added but not overwritten. Any updates to existing fields go through a formal process and data updated accordingly</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
         Data consistency Score: <span id="outputconsistencyScore">0</span> <!-- Default score -->
     </div>
 
 
-    <p>Is data currently being effectively collected and reported on?</p>
+    <h4>To what extent do you believe your data is being effectively collected and reported on?</h4>
+    <br>
     <select id="Dataeffectivenessselect" onchange="calculateScore('Dataeffectivenessselect', 'outputeffectivenessScore')">
-        <option value="0">No formal quantitative reporting and no consistent data collection</option>
-        <option value="1">Basic data collected manually, usually operational outputs. Reported either qualitatively or in basic Excel tables</option>
-        <option value="2">Formal data collection to produce consistent data. Attempt to measure and report outcomes not just outputs. Reported in a consistent format either through structured Excel report or another reporting tool</option>
-        <option value="3">Effective data collection with a range of consistent datapoint relating to outputs and outcomes. Data stored properly (database ideally) and pulled into clearly defined reporting in a data vis tool that is live, well maintained and provides deep insight</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
         Data effectiveness Score: <span id="outputeffectivenessScore">0</span> <!-- Default score -->
     </div>
 
 
-    <p>Is data captured/input manually or automatically?</p>
+    <h4>To what extent is your data capture automated and free from manual processes?</h4>
+    <br>
     <select id="Dataautomaticityselect" onchange="calculateScore('Dataautomaticityselect', 'outputautomaticityScore')">
-        <option value="0">Data captured manually either on paper, verbally by staff or purely in notes</option>
-        <option value="1">Data input manually into a digital system by staff after relevant activity</option>
-        <option value="2">Data flows from source to storage system automatically. Any input is digital first wherever possible and well streamlined</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
         Data automaticity Score: <span id="outputautomaticityScore">0</span> <!-- Default score -->
     </div>
 
 
-    <p>Does the client capture demographic data effectively?</p>
+    <!--<h4>Does the client capture demographic data effectively?</h4>  this question appears in the MWM section too! --> <!--
+    <br>
     <select id="Datademographicsselect" onchange="calculateScore('Datademographicsselect', 'outputdatademographicsScore')">
         <option value="0">Little to no demographic data effectively collected</option>
         <option value="1">Core demographic data collected but not always aligned to ONS, may only exist in one system (CRM) and not possible to link to others, may be missing demographic details relevant to the specific use case</option>
         <option value="2">Range of demographic data collected as default for all relevant clients/beneficiaries, aligns to any external datasets needed, can be linked across datasets</option>
     </select>
     <div class="output-score">
-        Data demographics Score: <span id="outputdatademographicsScore">0</span> <!-- Default score -->
-    </div>
+        Data demographics Score: <span id="outputdatademographicsScore">0</span>  
+    </div> -->
 </div>
 
 
 <div id="SystemScore" class="container">
     <h1>System Assessment</h1>
-    <p>Is the number of systems being operated appropriate for the organisation?</p>
+    <br>
+    <br>
+    <h4>Is the number of systems being operated appropriate for the organisation?</h4>
+    <br>
     <select id="numberofsystemsselect" onchange="calculateScore('numberofsystemsselect', 'outputnumberofsystemsScore')">
-        <option value="0">No formal system in place. Reliance on basic tools and Excel</option>
-        <option value="1">One or two core systems being used. Still some reliance on other basic tools to fill in gaps</option>
-        <option value="2">Suitable number of systems for the work being done with appropriate infrastructure in place to manage and maintain them</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
         System appropriateness Score: <span id="outputnumberofsystemsScore">0</span> <!-- Default score -->
     </div>
 
 
-    <p>Are the systems modern and fit for purpose?</p>
+    <h4>Are the systems modern and fit for purpose?</h4>
+    <br>
     <select id="systemfitnessselect" onchange="calculateScore('systemfitnessselect', 'outputsystemfitnessScore')">
-        <option value="0">No formal system(s) in place and dependence on basic tools to fill gaps (Excel etc)</option>
-        <option value="1">One or two modern systems that can be effective but not used effectively / being used for too much. Use of legacy systems that are difficult to use/maintain and lack modern functionality</option>
-        <option value="2">Systems in use are appropriate for their requirements, should not need replacing in next 2 years. Likely industry standard tools or well reasoned alternatives and likely Cloud based</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
         System fitness Score: <span id="outputsystemfitnessScore">0</span> <!-- Default score -->
     </div>
 
 
-    <p>Does the organisation have the appropriate personnel and support in place to run their systems?</p>
+    <h4>Does the organisation have the appropriate personnel and support in place to run their systems?</h4>
+    <br>
+    <br>
     <select id="systempersonnelselect" onchange="calculateScore('systempersonnelselect', 'outputsystempersonnelScore')">
-        <option value="0">No IT or data specific roles exist</option>
-        <option value="1">Some IT and data responsibilities in place but generally built in to broader roles. May be owned by someone without the right skillset</option>
-        <option value="2">Some dedicated IT and/or data roles with reasonable skillset and control of systems</option>
-        <option value="3">Appropriate number of experts in place dedicated to maintanence of relevant systems and data</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
         System Personnel Score: <span id="outputsystempersonnelScore">0</span> <!-- Default score -->
     </div>
 
 
-    <p>Is it possible for the client to customise impact relevant systems or does this require support?</p>
+    <h4>Is it possible for the client to customise impact relevant systems without external support services?</h4>
+    <br>
     <select id="systempcustomisationselect" onchange="calculateScore('systempcustomisationselect', 'outputsystemcustomisationScore')">
-        <option value="0">Very little customisation possible at all</option>
-        <option value="1">Customisation possible but requires long lead times and can be costly</option>
-        <option value="2">Systems owned by client and their IT team able to effectively customise where required</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
         System Customisation Score: <span id="outputsystemcustomisationScore">0</span> <!-- Default score -->
     </div>
 
 
-    <p>Do systems talk to each other and/or is there a central data warehouse?</p>
+    <h4>If you have multiple systems, What is the capability for those systems to interact with each other?</h4>
+    <br>
+    <br>
     <select id="systemconnectivityselect" onchange="calculateScore('systemconnectivityselect', 'outputsystemconnectivityScore')">
-        <option value="0">Siloed systems, may lack any identifiers, APIs or ways of interacting</option>
-        <option value="1">Some possibility for basic system "integration". Often requires some effort like exporting datasets and joining them in Excel, importing data from one system to another manually etc</option>
-        <option value="2">Automated integration between systems. May include a data warehouse if needed or could be a central system (e.g. Salesforce) that pulls data from other systems itself</option>
+            <option value="0">Please Select</option>
+            <option value="10">N/A</option>     
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
         System Connectivity Score: <span id="outputsystemconnectivityScore">0</span> <!-- Default score -->
     </div>
 
 
-    <p>How long has the client been using/operating their systems? (speaks to both experience and history)</p>
+    <h4>To what extent would you agree that your systems are modern and well maintained?</h4>
+    <br>
     <select id="systemageselect" onchange="calculateScore('systemageselect', 'outputsystemageScore')">
-        <option value="0">In process of selecting or moving on to new system(s)</option>
-        <option value="1">Recently moved onto new system(s)</option>
-        <option value="2">System(s) have been operational for a reasonable length of time and are BAU and have history</option>
+            <option value="0">Please Select</option>
+            <option value="10">N/A</option>     
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
         System Age Score: <span id="outputsystemageScore">0</span> <!-- Default score -->
