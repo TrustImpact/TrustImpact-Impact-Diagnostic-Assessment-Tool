@@ -23,6 +23,24 @@
         min-height: 100vh;
         background-color: #ffffff;
     }
+        .vc_custom_1707898486337 {
+        background: rgba(242, 242, 242, 0.09) url(https://www.trustimpact.com/wp-content/uploads/2020/09/trust-impact-logo.png) 
+    }
+
+        .vc_custom_1707894194125 {
+        margin-top: 80px !important;
+    }
+    #header {
+        width: 100%;
+        background-color: #FFFFFF; /* Adjust the background color as needed */
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds a shadow for depth */
+        text-align: center; /* Centers the logo horizontally */
+    }
+        #header img {
+        height: 100px; 
+    }
+
     div#form-container {
         background-color: #ffffff;
         padding: 20px;
@@ -34,11 +52,11 @@
         margin: auto;  /* This will center the container */
     }
     h1 {
-        color: #ffffff;
+        color: #000000;
         margin-bottom: 20px;
     }
     h2 {
-        color: #5D3FD3;
+        color: #000000;
     }
     select {
         padding: 10px;
@@ -54,6 +72,7 @@
         border-radius: 4px;
         cursor: pointer;
         margin-top: 20px;
+        font-weight: bold;
     }
     button:hover {
         background-color: #4c32cc;
@@ -68,12 +87,10 @@
     .container {
     flex: 0 0 30%; /* Each box will take up roughly 30% of the container width */
     margin: 10px; /* Adjust as needed for spacing */
-    /* Other styling as needed */
     }
     .output-score {
         display: none;
     }
-    /* Style for the container score */
     .container-score {
         margin-top: 10px;
         padding: 10px;
@@ -81,8 +98,35 @@
         border-radius: 4px;
         font-weight: bold;
     }
+    select {
+        width: 100%; /* Ensures that select occupies the full width of its parent container */
+        height: 40px; /* Sets a fixed height for all select boxes */
+        padding: 5px 10px; /* Adds some padding inside the select box for better text visibility */
+        font-size: 16px; /* Adjusts the font size for the options */
+        border: 1px solid #ddd; /* Adds a border to the select box */
+        border-radius: 4px; /* Rounds the corners of the select box */
+        box-sizing: border-box; /* Ensures padding does not affect the final calculated width */
+        margin-top: 10px; /* Keeps the existing top margin for spacing */
+        background-color: white; /* Optional: sets a background color */
+        cursor: pointer; /* Changes cursor to pointer to indicate it's selectable */
+    }
+
+    /* You might want to add styles for focus and hover states for better user experience */
+    select:hover {
+        border-color: #aaa; /* Changes border color on hover */
+    }
+
+    select:focus {
+        outline: none; /* Removes the default focus outline */
+        border-color: #5D3FD3; /* Adds a custom border color on focus */
+    }
 </style>
 </head>
+
+    <div id="header">
+        <img src="https://www.trustimpact.com/wp-content/uploads/2020/09/trust-impact-logo.png" alt="Trust Impact Logo" style="height: 100px;"> 
+    </div>
+
 <body>
 
 <div class="containers-row">
@@ -566,7 +610,7 @@
         System Age Score: <span id="outputsystemageScore">1</span> <!-- Default score -->
     </div>
 </div>
-    <!-- ... additional questions follow the same pattern ... -->
+
     
 <!-- Score Summary Table -->
 <div id="scoreSummary">
