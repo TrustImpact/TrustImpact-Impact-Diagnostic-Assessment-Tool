@@ -58,6 +58,16 @@
     h2 {
         color: #000000;
     }
+    h3 {
+        color: #000000;
+    }
+    h4 {
+        color: #000000;
+        font-weight: normal;
+    }
+    p {
+    font-size: 60%; /* Relative to the font size of the element's parent */
+    }
     select {
         padding: 10px;
         border-radius: 4px;
@@ -129,316 +139,549 @@
 
 <body>
 
-<div class="containers-row">
+<!--<div class="containers-row"> -->
 <!-- Purpose Alignment Tool Score Container -->
 <div id="PurposeAlignmentToolScore" class="container">
-    <h2>Purpose Alignment Tool Score</h2>
-    <p>What was your team's alignment to purpose score?</p>
+    <h1>Purpose Alignment Tool Score</h1>
+    <h4>What was your team's alignment to purpose score?</h4>
+    <br>
+
     <select id="alignmentScoreSelect" onchange="calculateScore('alignmentScoreSelect', 'outputPurposeAlignmentScore')">
-        <option value="1">0-20</option>
-        <option value="2">21-40</option>
-        <option value="3">41-60</option>
-        <option value="4">61-80</option>
-        <option value="5">81-100</option>
+        <option value="0">Please Select</option>
+        <option value="0">0</option>
+        <option value="1">1-10</option>
+        <option value="2">11-20</option>
+        <option value="3">21-30</option>
+        <option value="4">31-40</option>
+        <option value="5">41-50</option>
+        <option value="6">51-60</option>
+        <option value="7">61-70</option>
+        <option value="8">71-80</option>
+        <option value="9">81-90</option>
+        <option value="10">91-100</option>
     </select>
     <div class="output-score">
-        Purpose Alignment Score: <span id="outputPurposeAlignmentScore">1</span>
+        Purpose Alignment Score: <span id="outputPurposeAlignmentScore">0</span>
     </div>
 </div>
 
-
+<div class="containers-row">
 <!-- Purpose Statement Assessment Container -->
 <div id="PurposeStatementAssessmentScore" class="container">
-    <h2>Purpose Statement Assessment</h2>
+    <h1>Purpose Statement Assessment</h1>
     
-    <!-- Each question now has its own unique select id and corresponding output span id -->
     <div class="question">
-        <p>What is the length of the Purpose Statement?</p>
+        <h4>To what extent is your purpose statement succinct?</h4>
+        <p>(By succinct we anticipate this to be under 10 words and to the point)</p>
+        <br>
         <select id="lengthScoreSelect" onchange="calculateScore('lengthScoreSelect', 'outputLengthScore')">
-            <option value="2">Under 10 words</option>
-            <option value="1">11 to 20 words</option>
-            <option value="0">over 21 words</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
         </select>
         <div class="output-score">
-            Length Score: <span id="outputLengthScore">2</span>
+            Length Score: <span id="outputLengthScore">0</span>
         </div>
     </div>
 
 
-    <!--<div id="Use of Common Words" class="container">
-    <h2>Use of Common Words</h2>-->
-    <p>To what extend are common words such as "Support' used?</p>
+    <h4>How prevalent are common words such as support in your purpose statement?</h4>
+    <br>
     <select id="commonwordsselect" onchange="calculateScore('commonwordsselect', 'outputcommonwordScore')">
-        <option value="2">none</option>
-        <option value="1">one</option>
-        <option value="0">two or more</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        Common words Score: <span id="outputcommonwordScore">1</span> <!-- Default score -->
+        Common words Score: <span id="outputcommonwordScore">0</span> <!-- Default score -->
     </div>
-<!--</div>-->
 
 
-    <p>Is this statement unique to you and could not be used by another organisation?</p>
+    <h4>To what extent is do you feel your purpose statement is unique to your organisation?</h4>
+    <br>
     <select id="uniqueselect" onchange="calculateScore('uniqueselect', 'outputuniqueScore')">
-        <option value="2">Yes</option>
-        <option value="0">No</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        Uniqueness Score: <span id="outputuniqueScore">1</span> <!-- Default score -->
+        Uniqueness Score: <span id="outputuniqueScore">0</span> <!-- Default score -->
     </div>
-<!--</div>-->
 
 
-    <p>Is the statement free from use of jargon or unclear language?</p>
+    <h4>On a scale of 0 - 10, how clear is your purpose statement?</h4>
+    <p>(i.e. free from jargon and easy to understand)</p>
+    <br>
     <select id="jargonselect" onchange="calculateScore('jargonselect', 'outputjargonScore')">
-        <option value="2">Yes</option>
-        <option value="0">No</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        Clarity Score: <span id="outputjargonScore">1</span> <!-- Default score -->
+        Clarity Score: <span id="outputjargonScore">0</span> <!-- Default score -->
     </div>
-<!--</div>-->
 
 
-    <p>Is the statement focussed?</p>
+    <h4>On a scale of 0 - 10, how focussed is your purpose statement?</h4>
+    <p>(i.e. does it explicitly capture what you are trying to achieve as an organisation and the method for achieving this)</p>
+    <br>
     <select id="focusselect" onchange="calculateScore('focusselect', 'outputfocusScore')">
-        <option value="2">Yes - very focussed</option>
-        <option value="1">Partially</option>
-        <option value="0">No</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        Focus Score: <span id="outputfocusScore">1</span> <!-- Default score -->
+        Focus Score: <span id="outputfocusScore">0</span> <!-- Default score -->
     </div>
 </div>
 
 
+<!-- Impact Leadership Container -->
 <div id="ImpactLeadershipScore" class="container">
-    <h2>Impact Leadership Assessment</h2>
-    <p>Is impact genuinely led from the top?</p>
+    <h1>Impact Leadership Assessment</h1>
+    <h4>On a scale of 0 - 10, to what extent would you agree that impact is led from the top of your organisation?</h4>
+    <p>(i.e. do your senior leaders regularly discuss impact and take action to improve it?)</p>    
     <select id="impactledselect" onchange="calculateScore('impactledselect', 'outputledScore')">
-        <option value="2">Yes</option>
-        <option value="1">Partially</option>
-        <option value="0">No</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        Impact Led Score: <span id="outputledScore">1</span> <!-- Default score -->
+        Impact Led Score: <span id="outputledScore">0</span> <!-- Default score -->
     </div>
 
-    <p>Is there appetite for being impact-led?</p>
+    <h4>To what extent do you agree that people in your organisation are excited about delivering social impact?</h4>
+    <br>
     <select id="appetiteselect" onchange="calculateScore('appetiteselect', 'outputappetiteScore')">
-        <option value="2">Yes</option>
-        <option value="1">Some but not consistently</option>
-        <option value="0">No</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        Impact appetite Score: <span id="outputappetiteScore">1</span> <!-- Default score -->
+        Impact appetite Score: <span id="outputappetiteScore">0</span> <!-- Default score -->
     </div>
 
     
-    <p>Have they/you already undertaken elements of impact work and have no desire to repeat it?</p>
+    <h4>To what extent would you agree impact work has been succesfully undertaken in the organisation?</h4>
+    <br>
     <select id="desireselect" onchange="calculateScore('desireselect', 'outputdesireScore')">
-        <option value="2">No</option>
-        <option value="1">Yes but keen to repeat</option>
-        <option value="0">Yes and likely to meet resistence to change</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        Impact desire Score: <span id="outputdesireScore">1</span> <!-- Default score -->
+        Impact desire Score: <span id="outputdesireScore">0</span> <!-- Default score -->
     </div>
 
 
-    <p>Is the impact already embedded culturally across the whole organisation?</p>
+    <h4>To what extent do you feel the organisation is willing to undertake further work around impact?</h4>
+    <br>
     <select id="cultureselect" onchange="calculateScore('cultureselect', 'outputcultureScore')">
-        <option value="2">Yes</option>
-        <option value="1">Partly</option>
-        <option value="0">No</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        Impact culture Score: <span id="outputcultureScore">1</span> <!-- Default score -->
+        Impact culture Score: <span id="outputcultureScore">0</span> <!-- Default score -->
     </div>
 
-    <p>Are there any blockers at senior level, or organisational challenges that will prevent completing this work effectively?</p>
+
+    <h4>To what extent would you agree that your organisation has a culture of understanding and measuring impact?</h4>
+    <br>
     <select id="blockersselect" onchange="calculateScore('blockersselect', 'outputblockerscore')">
-        <option value="2">none</option>
-        <option value="1">possibly</option>
-        <option value="0">definitely</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        Impact blocker Score: <span id="outputblockerscore">1</span> <!-- Default score -->
+        Impact blocker Score: <span id="outputblockerscore">0</span> <!-- Default score -->
+    </div>
+
+    <h4>How easy would it be to achieve buy-in from key people in your organisation to improve your impact?</h4>
+    <br>
+    <select id="buyinselect" onchange="calculateScore('buyinelect', 'outputbuyinScore')">
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
+    </select>
+    <div class="output-score">
+        Buy-in Score: <span id="outputbuyinScore">0</span> <!-- Default score -->
     </div>
 </div>
 
-
+<!-- Theory of Change Container -->
 <div id="ToCScore" class="container">
-    <h2>Theory of Change Assessment</h2>
-    <p>Do you have a complete Theory of Change?</p>
+    <h1>Theory of Change Assessment</h1>
+    <h4>On a scale of 0 - 10 how complete do you believe your theory of change is?</h4>
+    <p>(Does it include your resources, activities, outputs, outcomes, and impact?)</p>
+    <br>
     <select id="TOCselect" onchange="calculateScore('TOCselect', 'outputTOCScore')">
-        <option value="0">No</option>
-        <option value="1">Partial/Incomplete</option>
-        <option value="0">Yes</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        ToC Score: <span id="outputTOCScore">1</span> <!-- Default score -->
+        ToC Score: <span id="outputTOCScore">0</span> <!-- Default score -->
     </div>
 
-    <p>Is your Theory of Change used to drive the organisation?</p>
+    <h4>To what extent is your theory of change used to drive the work of your organisation?</h4>
+    <br>
     <select id="orgdriveselect" onchange="calculateScore('orgdriveselect', 'outputorgdriveScore')">
-        <option value="2">Yes</option>
-        <option value="0">No</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        ToC use Score: <span id="outputorgdriveScore">1</span> <!-- Default score -->
+        ToC use Score: <span id="outputorgdriveScore">0</span> <!-- Default score -->
     </div>
 
     
-    <p>Can your Theory of Change be revisited if neccessary?</p>
+    <h4>To what extent do you think your organisation would be willing to revisit your theory of change?</h4>
+    <br>
     <select id="upforchangeselect" onchange="calculateScore('upforchangeselect', 'outputupforchangeScore')">
-        <option value="2">Yes</option>
-        <option value="0">No</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        Ameniability Score: <span id="outputupforchangeScore">1</span> <!-- Default score -->
+        Ameniability Score: <span id="outputupforchangeScore">0</span> <!-- Default score -->
     </div>
 
 
-    <p>Is it complex, i.e. more than one page, multiple lanes or confusing to look at?</p>
+    <h4>To what extent do you agree that your theory of change is simple and straight forward?</h4>
+    <p>Is it easily understood, non-confusing, one one page?</p>
     <select id="complexselect" onchange="calculateScore('complexselect', 'outputcomplexScore')">
-        <option value="0">Very</option>
-        <option value="1">A little</option>
-        <option value="2">No</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        ToC Complexity Score: <span id="outputcomplexScore">1</span> <!-- Default score -->
+        ToC Complexity Score: <span id="outputcomplexScore">0</span> <!-- Default score -->
     </div>
 
 
-    <p>Is the impact actually impact and the outcomes actually outcomes?</p>
+    <h4>To what extent would you agree that the measures in your theory of change are measures of impact and not measures of reach?</h4>
+    <br>
     <select id="correctlydefinedselect" onchange="calculateScore('correctlydefinedselect', 'outputcorrectlydefinedscore')">
-        <option value="2">Yes</option>
-        <option value="1">one but not both</option>
-        <option value="0">No</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        Definitions Score: <span id="outputcorrectlydefinedscore">1</span> <!-- Default score -->
+        Definitions Score: <span id="outputcorrectlydefinedscore">0</span> <!-- Default score -->
     </div>
 </div>
 
 
 <div id="MWMScore" class="container">
-    <h2>Measurement Framework Assessment</h2>
+    <h1>Measurement Framework Assessment</h1>
     <p>On a scale of 0-5, Is your framework feasable, cost effective, time efficient, resource appropriate and producing good quality, and reliable data?</p>
     <select id="MWMfeasibilityselect" onchange="calculateScore('MWMfeasibilityselect', 'outputMWMfeasibleScore')">
-        <option value="0">0 - Not feasible, effective, efficient, appropriate or producing reliable data </option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5 - Highly feasible, effective, efficient, appropriate and producing reliable data </option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        MWM feasibility Score: <span id="outputMWMfeasibleScore">1</span> <!-- Default score -->
+        MWM feasibility Score: <span id="outputMWMfeasibleScore">0</span> <!-- Default score -->
     </div>
 
     
         <p>How many impact indicators are you measuring?</p>
     <select id="numberofindicatorsselect" onchange="calculateScore('numberofindicatorsselect', 'outputnumberofindicatorsScore')">
-        <option value="0"> none </option>
-        <option value="5">1 to 5</option>
-        <option value="4">6 to 10</option>
-        <option value="3">11 to 15</option>
-        <option value="2">15 to 20</option>
-        <option value="1">20+</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        MWM count of indicators Score: <span id="outputnumberofindicatorsScore">1</span> <!-- Default score -->
+        MWM count of indicators Score: <span id="outputnumberofindicatorsScore">0</span> <!-- Default score -->
     </div>
 
 
         <p>What percentage of these are outputs rather than outcomes?</p>
     <select id="percentageofindicatorsselect" onchange="calculateScore('percentageofindicatorsselect', 'outputpercentageofindicatorsScore')">
-        <option value="5">0 to 20%</option>
-        <option value="4">21% to 40%</option>
-        <option value="3">41% to 60%</option>
-        <option value="2">61% to 80%</option>
-        <option value="1">81% to 99%</option>
-        <option value="0">100%</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        MWM percentage of indicators Score: <span id="outputpercentageofindicatorsScore">1</span> <!-- Default score -->
+        MWM percentage of indicators Score: <span id="outputpercentageofindicatorsScore">0</span> <!-- Default score -->
     </div>
 
 
         <p>Are your indicators based on validated data?</p>
     <select id="validatedindicatorsselect" onchange="calculateScore('validatedindicatorsselect', 'outputvalidatedindicatorsScore')">
-        <option value="5">All</option>
-        <option value="4">Most</option>
-        <option value="3">Some</option>
-        <option value="2">A few</option>
-        <option value="1">Not really</option>
-        <option value="0">No</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        MWM Validated indicators Score: <span id="outputvalidatedindicatorsScore">1</span> <!-- Default score -->
+        MWM Validated indicators Score: <span id="outputvalidatedindicatorsScore">0</span> <!-- Default score -->
     </div>
 
 
         <p>Do your indicators have external data to which you can compare?</p>
     <select id="externalddataselect" onchange="calculateScore('externalddataselect', 'outputexternaldataScore')">
-        <option value="5">Yes, to externally validated live data</option>
-        <option value="4">Yes, to externally validated data updated monthly or quarterly</option>
-        <option value="3">Yes, to an annual survey</option>
-        <option value="2">Yes, but only to a static study</option>
-        <option value="1">No, only against our own data</option>
-        <option value="0">No</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        MWM indicators comparison Score: <span id="outputexternaldataScore">1</span> <!-- Default score -->
+        MWM indicators comparison Score: <span id="outputexternaldataScore">0</span> <!-- Default score -->
     </div>
 
 
         <p>Do you ask demographics questions to understand your reach?</p>
     <select id="reachdataselect" onchange="calculateScore('reachdataselect', 'outputreachdataScore')">
-        <option value="5">Yes, we collect in line with research aligned to acceptability and langauge appropriate to our target population</option>
-        <option value="4">Yes we collect in line with advise from researchers</option>
-        <option value="3">Yes, we collect annonymous demographics in line with GDPR</option>
-        <option value="2">Yes, we collect what our funder asks us to collect</option>
-        <option value="1">Yes we collect information but immediately delete</option>
-        <option value="0">No</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        MWM demographics Score: <span id="outputreachdataScore">1</span> <!-- Default score -->
+        MWM demographics Score: <span id="outputreachdataScore">0</span> <!-- Default score -->
     </div>
 
 
         <p>Do your demographics help you examine your outcome data to better understand who you are maximising impact for?</p>
     <select id="segmentselect" onchange="calculateScore('segmentselect', 'outputsegmentScore')">
-        <option value="5">Yes, I am able to use multiple demographics to examine clients against outcome indicators</option>
-        <option value="3">Yes, I am able to see my data through a single demographic lens</option>
-        <option value="1">I cannot examine my impact by client type, I only collect reach data</option>
-        <option value="0">I dont collect any data for reach or impact</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        MWM Segmentation Score: <span id="outputsegmentScore">1</span> <!-- Default score -->
+        MWM Segmentation Score: <span id="outputsegmentScore">0</span> <!-- Default score -->
     </div>
 
 
         <p>Is your methodology for data analysis the best it could be</p>
     <select id="methodologyselect" onchange="calculateScore('methodologyselect', 'outputmethodologyScore')">
-        <option value="5">I am collecting data aligned to outcomes and comparing it to populations that don't receive our intervention</option>
-        <option value="4">We are collecting data aligned to outcomes at pre, post, and follow time periods</option>
-        <option value="3">We are collecting outcome data only post intervention</option>
-        <option value="2">We are collecting data for quality assurance purposes not impact measurement</option>
-        <option value="1">We are only collecting qualitative data such as case studies</option>
-        <option value="0">We are not collecting either quantiative or qualitative impact data</option>
+            <option value="0">Please Select</option>
+            <option value="0">0 - Not at all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extremely</option>
     </select>
     <div class="output-score">
-        MWM collection methods Score: <span id="outputmethodologyScore">1</span> <!-- Default score -->
+        MWM collection methods Score: <span id="outputmethodologyScore">0</span> <!-- Default score -->
     </div>
 </div>
 
 
 <div id="DataScore" class="container">
-    <h2>Data Assessment</h2>
+    <h1>Data Assessment</h1>
     <p>Do you use defined and structured data fields rather than free text?</p>
     <select id="Datastructureselect" onchange="calculateScore('Datastructureselect', 'outputDataStructureScore')">
         <option value="0">All free text fields</option>
@@ -446,7 +689,7 @@
         <option value="2">All appropriate fields defined and structured</option>
     </select>
     <div class="output-score">
-        Data Structure Score: <span id="outputDataStructureScore">1</span> <!-- Default score -->
+        Data Structure Score: <span id="outputDataStructureScore">0</span> <!-- Default score -->
     </div>
 
 
@@ -458,7 +701,7 @@
         <option value="3">System generated unique identifiers in all tables across database allowing for relationships between all relevant tables</option>
     </select>
     <div class="output-score">
-        Data Uniqueness Score: <span id="outputuniquedataScore">1</span> <!-- Default score -->
+        Data Uniqueness Score: <span id="outputuniquedataScore">0</span> <!-- Default score -->
     </div>
 
 
@@ -470,7 +713,7 @@
         <option value="3">Expert</option>
     </select>
     <div class="output-score">
-        Data Savvy Score: <span id="outputexpertiseScore">1</span> <!-- Default score -->
+        Data Savvy Score: <span id="outputexpertiseScore">0</span> <!-- Default score -->
     </div>
 
 
@@ -482,7 +725,7 @@
         <option value="3">Up to 100% completeness</option>
     </select>
     <div class="output-score">
-        Data Completeness Score: <span id="outputcompletenessScore">1</span> <!-- Default score -->
+        Data Completeness Score: <span id="outputcompletenessScore">0</span> <!-- Default score -->
     </div>
 
     <p>Are your datapoints timestamped?</p>
@@ -492,7 +735,7 @@
         <option value="2">Use of one or more date fields (can be system generated) to accurately indicate all relevant timepoints within the process (e.g. start, review, completion)</option>
     </select>
     <div class="output-score">
-        Data timepoints Score: <span id="outputtimestampScore">1</span> <!-- Default score -->
+        Data timepoints Score: <span id="outputtimestampScore">0</span> <!-- Default score -->
     </div>
 
 
@@ -503,7 +746,7 @@
         <option value="2">Data structure is formal and consistent with permanently defined fields. New fields may be added but not overwritten. Any updates to existing fields go through a formal process and data updated accordingly</option>
     </select>
     <div class="output-score">
-        Data consistency Score: <span id="outputconsistencyScore">1</span> <!-- Default score -->
+        Data consistency Score: <span id="outputconsistencyScore">0</span> <!-- Default score -->
     </div>
 
 
@@ -515,7 +758,7 @@
         <option value="3">Effective data collection with a range of consistent datapoint relating to outputs and outcomes. Data stored properly (database ideally) and pulled into clearly defined reporting in a data vis tool that is live, well maintained and provides deep insight</option>
     </select>
     <div class="output-score">
-        Data effectiveness Score: <span id="outputeffectivenessScore">1</span> <!-- Default score -->
+        Data effectiveness Score: <span id="outputeffectivenessScore">0</span> <!-- Default score -->
     </div>
 
 
@@ -526,7 +769,7 @@
         <option value="2">Data flows from source to storage system automatically. Any input is digital first wherever possible and well streamlined</option>
     </select>
     <div class="output-score">
-        Data automaticity Score: <span id="outputautomaticityScore">1</span> <!-- Default score -->
+        Data automaticity Score: <span id="outputautomaticityScore">0</span> <!-- Default score -->
     </div>
 
 
@@ -537,13 +780,13 @@
         <option value="2">Range of demographic data collected as default for all relevant clients/beneficiaries, aligns to any external datasets needed, can be linked across datasets</option>
     </select>
     <div class="output-score">
-        Data demographics Score: <span id="outputdatademographicsScore">1</span> <!-- Default score -->
+        Data demographics Score: <span id="outputdatademographicsScore">0</span> <!-- Default score -->
     </div>
 </div>
 
 
 <div id="SystemScore" class="container">
-    <h2>System Assessment</h2>
+    <h1>System Assessment</h1>
     <p>Is the number of systems being operated appropriate for the organisation?</p>
     <select id="numberofsystemsselect" onchange="calculateScore('numberofsystemsselect', 'outputnumberofsystemsScore')">
         <option value="0">No formal system in place. Reliance on basic tools and Excel</option>
@@ -551,7 +794,7 @@
         <option value="2">Suitable number of systems for the work being done with appropriate infrastructure in place to manage and maintain them</option>
     </select>
     <div class="output-score">
-        System appropriateness Score: <span id="outputnumberofsystemsScore">1</span> <!-- Default score -->
+        System appropriateness Score: <span id="outputnumberofsystemsScore">0</span> <!-- Default score -->
     </div>
 
 
@@ -562,7 +805,7 @@
         <option value="2">Systems in use are appropriate for their requirements, should not need replacing in next 2 years. Likely industry standard tools or well reasoned alternatives and likely Cloud based</option>
     </select>
     <div class="output-score">
-        System fitness Score: <span id="outputsystemfitnessScore">1</span> <!-- Default score -->
+        System fitness Score: <span id="outputsystemfitnessScore">0</span> <!-- Default score -->
     </div>
 
 
@@ -574,7 +817,7 @@
         <option value="3">Appropriate number of experts in place dedicated to maintanence of relevant systems and data</option>
     </select>
     <div class="output-score">
-        System Personnel Score: <span id="outputsystempersonnelScore">1</span> <!-- Default score -->
+        System Personnel Score: <span id="outputsystempersonnelScore">0</span> <!-- Default score -->
     </div>
 
 
@@ -585,7 +828,7 @@
         <option value="2">Systems owned by client and their IT team able to effectively customise where required</option>
     </select>
     <div class="output-score">
-        System Customisation Score: <span id="outputsystemcustomisationScore">1</span> <!-- Default score -->
+        System Customisation Score: <span id="outputsystemcustomisationScore">0</span> <!-- Default score -->
     </div>
 
 
@@ -596,7 +839,7 @@
         <option value="2">Automated integration between systems. May include a data warehouse if needed or could be a central system (e.g. Salesforce) that pulls data from other systems itself</option>
     </select>
     <div class="output-score">
-        System Connectivity Score: <span id="outputsystemconnectivityScore">1</span> <!-- Default score -->
+        System Connectivity Score: <span id="outputsystemconnectivityScore">0</span> <!-- Default score -->
     </div>
 
 
@@ -607,14 +850,14 @@
         <option value="2">System(s) have been operational for a reasonable length of time and are BAU and have history</option>
     </select>
     <div class="output-score">
-        System Age Score: <span id="outputsystemageScore">1</span> <!-- Default score -->
+        System Age Score: <span id="outputsystemageScore">0</span> <!-- Default score -->
     </div>
 </div>
 
     
 <!-- Score Summary Table -->
 <div id="scoreSummary">
-    <h2>Score Summary</h2>
+    <h1>Score Summary</h1>
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -651,7 +894,6 @@
                 <td>System Review Score</td>
                 <td id="totalSystemScore">0</td>
             </tr>
-            <!-- ... Add more rows for other containers as needed ... -->
         </tbody>
     </table>
 </div>
@@ -668,10 +910,8 @@
 </div>
 
 
-<!-- ... script tag ... -->
-
 <script>
-// ... other parts of the JavaScript above ...
+
 
 // Function to calculate and display score based on the selected option
 function calculateScore(selectId, outputId) {
@@ -701,7 +941,7 @@ function updateScoreTable(containerId) {
     var averageScore = totalScore / selects.length;
 
     // Round the average score to a desired number of decimal places, e.g., 2
-    averageScore = averageScore.toFixed(1);
+    averageScore = averageScore.toFixed(2);
 
     var scoreCellId = 'total' + containerId;
     var scoreCell = document.getElementById(scoreCellId);
@@ -739,7 +979,7 @@ function generateRadarChart() {
     var chart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['Purpose Alignment', 'Purpose Statement', 'Impact Leadership', 'Theory of Change', 'Measurement Framework'], // Adjust these labels as per your containers
+            labels: ['Purpose Alignment', 'Purpose Statement', 'Impact Leadership', 'Theory of Change', 'Measurement Framework', 'Data Review', 'System Review'], // Adjust these labels as per your containers
             datasets: [{
                 label: 'Average Scores',
                 data: averageScores,
@@ -758,7 +998,7 @@ function generateRadarChart() {
                     suggestedMax: 5, // Suggests the maximum value for the scaleoptions: {
                     ticks: {
                         beginAtZero: true,
-                        max: 5, // Assuming the maximum average score is 5
+                        max: 10, // Assuming the maximum average score is 5
                         min: 0,
                         stepSize: 0.5
                     }
@@ -769,7 +1009,6 @@ function generateRadarChart() {
 }
 
 
-// ... rest of the JavaScript functions ...
 </script>
 
 </body>
