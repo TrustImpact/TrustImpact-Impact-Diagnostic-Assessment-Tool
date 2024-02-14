@@ -87,6 +87,9 @@
     button:hover {
         background-color: #4c32cc;
     }
+    #downloadResultsButton {
+    display: none;
+    }
     .containers-row {
     display: flex;
     flex-wrap: wrap;
@@ -861,7 +864,7 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Container</th>
+                <th>Section</th>
                 <th>Average Score</th>
             </tr>
         </thead>
@@ -902,6 +905,10 @@
 
     <!-- The button to generate the radar chart should probably be here -->
     <button onclick="generateRadarChart()">Generate Radar Chart</button>
+    <button id="downloadResultsButton" onclick="downloadResultsWithCalculatedTable()">Download Complete Results</button>
+
+
+
 </div>
 
 <!-- Radar Chart Container -->
@@ -974,7 +981,7 @@ function getAverageScores() {
 
 function generateRadarChart() {
     var ctx = document.getElementById('myRadarChart').getContext('2d');
-    var averageScores = getAverageScores(); // Get the average scores
+    var averageScores = getAverageScores() // Get the average scores
 
     var chart = new Chart(ctx, {
         type: 'radar',
@@ -1006,6 +1013,52 @@ function generateRadarChart() {
             }
         }
     });
+    document.getElementById('downloadResultsButton').style.display = 'block'; // Or 'inline-block'
+}
+
+function downloadResultsWithCalculatedTable() {
+    // Initialize CSV data array with header
+    let data = [['Section', 'Question', 'Raw Score', 'Output Score']];
+
+    // Iterate over each container to collect scores and outputs
+    document.querySelectorAll('.container').forEach(function(container) {
+        let sectionName = container.querySelector('h1').textContent.trim();
+
+        // Collect data from each question within the section
+        container.querySelectorAll('select').forEach(function(select, index) {
+            let questionLabel = select.closest('div.question, div').querySelector('h4, p').textContent.trim();
+            let rawScore = select.options[select.selectedIndex].text;
+            let outputScore = container.querySelectorAll('.output-score span')[index]?.textContent.trim() || ''; // Adjust if necessary
+
+            // Add row for each question
+            data.push([sectionName, questionLabel, rawScore, outputScore]);
+        });
+    });
+
+    // Add a separator row before the summary
+    data.push(['', '', '', '']);
+    data.push(['Summary Section', 'Average Score']);
+
+    // Add the calculated table data
+    document.querySelectorAll('#scoreSummary tbody tr').forEach(function(row) {
+        let section = row.cells[0].textContent.trim();
+        let averageScore = row.cells[1].textContent.trim();
+
+        data.push([section, averageScore]);
+    });
+
+    // Format data as CSV
+    let csvContent = data.map(e => e.join(",")).join("\n");
+
+    // Trigger download
+    let blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    let link = document.createElement("a");
+    let url = URL.createObjectURL(blob);
+    link.setAttribute("href", url);
+    link.setAttribute("download", "complete-analysis-results.csv");
+    document.body.appendChild(link); // Required for FF
+    link.click();
+    document.body.removeChild(link); // Clean up
 }
 
 
