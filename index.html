@@ -1056,8 +1056,14 @@
 
 
     <!-- The button to generate the radar chart should probably be here -->
+    
     <button onclick="generateRadarChart()">Generate Radar Chart</button>
+
+
     <button id="downloadResultsButton" onclick="downloadResultsWithCalculatedTable()">Download Complete Results</button>
+<br>
+<br>
+<br>
 
 
 
@@ -1169,26 +1175,58 @@ function generateRadarChart() {
     var { labels, averageScores } = getAverageScoresAndLabels();
 
     // Initialize a new chart instance
-    window.myRadarChart = new Chart(ctx, {
-        type: 'radar',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: 'Average Scores',
-                data: averageScores,
-                backgroundColor: 'rgba(93, 63, 211, 0.2)',
-                borderColor: 'rgba(93, 63, 211, 1)',
-            }]
+window.myRadarChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Average Scores',
+            data: averageScores,
+            backgroundColor: 'rgba(93, 63, 211, 0.2)',
+            borderColor: 'rgba(93, 63, 211, 1)',
+        }]
+    },
+    options: {
+        scales: {
+            r: {
+                beginAtZero: true,
+                max: 10,
+                angleLines: {
+                    display: true
+                },
+                ticks: {
+                    // Adjust tick label font size here
+                    font: {
+                        size: 14 // Adjust the font size for the scale ticks if needed
+                    }
+                },
+                pointLabels: {
+                    // Adjust the font size for the section labels around the chart
+                    font: {
+                        size: 18 // Increase the font size for the point labels (section labels)
+                    }
+                }
+            }
         },
-        options: {
-            scales: {
-                r: {
-                    beginAtZero: true,
-                    max: 10
+        plugins: {
+            legend: {
+                labels: {
+                    // Adjust legend label font size here
+                    font: {
+                        size: 14 // Adjust the legend labels font size if needed
+                    }
+                }
+            },
+            title: {
+                display: true,
+                text: 'Impact Diagnostic Assessment',
+                font: {
+                    size: 20 // Optionally, adjust the title font size as well
                 }
             }
         }
-    });
+    }
+});
 
         // Make the download button visible
     document.getElementById('downloadResultsButton').style.display = 'block';
