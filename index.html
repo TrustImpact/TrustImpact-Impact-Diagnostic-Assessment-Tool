@@ -5,14 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Purpose Alignment Tool Score</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hansard Sentiment Analysis</title>
+<title>Impact Diagnosis Assessment Tool</title>
 <link href="https://trst.uk/css/app.css" rel="stylesheet">
 <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">-->
 <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap">-->
 <script src="https://kit.fontawesome.com/19a0336ebe.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
     body {
         font-family: 'Raleway', sans-serif;
@@ -1192,6 +1189,9 @@ function generateRadarChart() {
             }
         }
     });
+
+        // Make the download button visible
+    document.getElementById('downloadResultsButton').style.display = 'block';
 }
 
 function downloadResultsWithCalculatedTable() {
