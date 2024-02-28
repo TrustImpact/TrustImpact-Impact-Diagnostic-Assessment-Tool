@@ -1055,6 +1055,9 @@
 </div>
 </div>
 
+<div id="overallAverageScoreDisplay">
+    <h2>Overall Average Score: <span id="displayAverageScore">0</span></h2>
+</div>
 
     <!-- The button to generate the radar chart should probably be here -->
     
@@ -1123,6 +1126,30 @@ function calculateScore(selectId, outputId) {
     updateScoreTable(selectElement.closest('.container').id);
 }
 
+function updateOverallAverageScore() {
+    let totalScore = 0;
+    let numberOfScores = 0;
+
+    // Iterate over each score in the summary table except for hidden rows
+    document.querySelectorAll('#scoreSummary tbody tr').forEach(row => {
+        // Check if the row is displayed by checking its style
+        if (row.style.display !== 'none') {
+            let score = parseFloat(row.cells[1].textContent);
+            if (!isNaN(score)) {
+                totalScore += score;
+                numberOfScores++;
+            }
+        }
+    });
+
+    // Calculate the average score only for displayed (visible) scores
+    let averageScore = numberOfScores > 0 ? (totalScore / numberOfScores).toFixed(2) : 0;
+
+    // Display the average score in the designated element
+    document.getElementById('displayAverageScore').textContent = averageScore;
+}
+
+
 function updateScoreTable(containerId) {
     var container = document.getElementById(containerId);
     var selects = container.querySelectorAll('select');
@@ -1145,6 +1172,8 @@ function updateScoreTable(containerId) {
         scoreCell.textContent = averageScore;
         scoreCell.closest('tr').style.display = scoredSelects > 0 ? '' : 'none';
     }
+
+    updateOverallAverageScore();
 
     // Also decide to show or hide in radar chart dynamically
     generateRadarChart();
