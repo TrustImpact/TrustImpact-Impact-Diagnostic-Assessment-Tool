@@ -139,6 +139,13 @@
 
 <body>
 
+        <h1>Organisation Name</h1>
+    <div class="question">
+        <label for="organisationName">Organisation Name:</label>
+        <input type="text" id="organisationName" name="organisationName" placeholder="Enter organisation name" required>
+    </div>
+</div>
+
 <!--<div class="containers-row"> -->
 <!-- Purpose Alignment Tool Score Container -->
 <div id="PurposeAlignmentToolScore" class="container">
@@ -1173,9 +1180,9 @@ function generateRadarChart() {
 function determineBackgroundColor(scores) {
     const averageScore = scores.reduce((acc, score) => acc + score, 0) / scores.length;
     
-    if (averageScore <= 5) {
+    if (averageScore <= 4) {
         return 'rgba(255, 0, 0, 0.2)'; // Red for low scores
-    } else if (averageScore <= 7) {
+    } else if (averageScore <= 8) {
         return 'rgba(255, 165, 0, 0.2)'; // Amber for medium scores
     } else {
         return 'rgba(0, 128, 0, 0.2)'; // Green for high scores
@@ -1243,8 +1250,11 @@ window.myRadarChart = new Chart(ctx, {
 }
 
 function downloadResultsWithCalculatedTable() {
-    // Initialize CSV data array with header
-    let data = [['Section', 'Question', 'Raw Score', 'Output Score']];
+    // Get the organization name from the input field
+    let organizationName = document.getElementById('organisationName').value.trim();
+
+    // Initialize CSV data array with header, including the organization name at the top
+    let data = [['Organization Name', organizationName], ['', ''], ['Section', 'Question', 'Raw Score', 'Output Score']];
 
     // Iterate over each container to collect scores and outputs
     document.querySelectorAll('.container').forEach(function(container) {
@@ -1274,10 +1284,8 @@ function downloadResultsWithCalculatedTable() {
         data.push([section, averageScore]);
     });
 
-    // Format data as CSV
     // Format data as CSV with fields enclosed in double quotes and internal double quotes escaped
     let csvContent = data.map(row => row.map(field => `"${field.replace(/"/g, '""')}"`).join(",")).join("\n");
-
 
     // Trigger download
     let blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
