@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Purpose Alignment Tool Score</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <title>Impact Diagnosis Assessment Tool</title>
 <link href="https://trst.uk/css/app.css" rel="stylesheet">
@@ -20,11 +19,11 @@
         min-height: 100vh;
         background-color: #ffffff;
     }
-        .vc_custom_1707898486337 {
+    .vc_custom_1707898486337 {
         background: rgba(242, 242, 242, 0.09) url(https://www.trustimpact.com/wp-content/uploads/2020/09/trust-impact-logo.png) 
     }
 
-        .vc_custom_1707894194125 {
+    .vc_custom_1707894194125 {
         margin-top: 80px !important;
     }
     #header {
@@ -34,7 +33,7 @@
         box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds a shadow for depth */
         text-align: center; /* Centers the logo horizontally */
     }
-        #header img {
+    #header img {
         height: 100px; 
     }
 
@@ -85,18 +84,18 @@
         background-color: #4c32cc;
     }
     #downloadResultsButton {
-    display: none;
+        display: none;
     }
     .containers-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around; /* Or 'space-between' as per your design needs */
-    align-items: flex-start;
-    width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; /* Or 'space-between' as per your design needs */
+        align-items: flex-start;
+        width: 100%;
     }
     .container {
-    flex: 0 0 30%; /* Each box will take up roughly 30% of the container width */
-    margin: 10px; /* Adjust as needed for spacing */
+        flex: 0 0 30%; /* Each box will take up roughly 30% of the container width */
+        margin: 10px; /* Adjust as needed for spacing */
     }
     .output-score {
         display: none;
@@ -120,8 +119,6 @@
         background-color: white; /* Optional: sets a background color */
         cursor: pointer; /* Changes cursor to pointer to indicate it's selectable */
     }
-
-    /* You might want to add styles for focus and hover states for better user experience */
     select:hover {
         border-color: #aaa; /* Changes border color on hover */
     }
@@ -129,6 +126,25 @@
     select:focus {
         outline: none; /* Removes the default focus outline */
         border-color: #5D3FD3; /* Adds a custom border color on focus */
+    }
+    .chart-container {
+        display: flex;
+        align-items: center; /* Align items vertically */
+    }
+
+    #legend-container {
+        margin-left: 20px; /* Add some space between the chart and the legend */
+        /* Additional styling as needed */
+    }
+
+    .custom-legend ul {
+        list-style-type: none; /* Removes bullet points */
+        padding-left: 0; /* Removes padding on the left side that indents list items */
+        margin-left: 0; /* Ensures the list aligns with the left edge of its container */
+    }
+
+    .custom-legend {
+        text-align: left; /* Aligns the text to the left */
     }
 </style>
 </head>
@@ -1074,8 +1090,10 @@
 </div>
 
 <!-- Radar Chart Container -->
-<div>
+<div class="chart-container">
     <canvas id="myRadarChart" width="800" height="800"></canvas>
+    <!-- Placeholder for the legend to be inserted dynamically -->
+    <div id="legend-container"></div>
 </div>
 
 
@@ -1193,6 +1211,19 @@ function getAverageScoresAndLabels() {
     return { labels, averageScores };
 }
 
+function determineBackgroundColor(averageScores) {
+    const total = averageScores.reduce((acc, score) => acc + score, 0);
+    const averageScore = total / averageScores.length;
+
+    if (averageScore <= 4) {
+        return 'rgba(255, 0, 0, 0.2)'; // Red for low scores
+    } else if (averageScore <= 7) {
+        return 'rgba(255, 165, 0, 0.2)'; // Amber for medium scores
+    } else {
+        return 'rgba(0, 128, 0, 0.2)'; // Green for high scores
+    }
+}
+
 function generateRadarChart() {
     var ctx = document.getElementById('myRadarChart').getContext('2d');
 
@@ -1204,80 +1235,76 @@ function generateRadarChart() {
     // Retrieve data for the new chart
     var { labels, averageScores } = getAverageScoresAndLabels();
 
-    // Initialize a new chart instance
-// Function to determine the dataset background color based on average score
-function determineBackgroundColor(scores) {
-    const averageScore = scores.reduce((acc, score) => acc + score, 0) / scores.length;
-    
-    if (averageScore <= 4) {
-        return 'rgba(255, 0, 0, 0.2)'; // Red for low scores
-    } else if (averageScore <= 8) {
-        return 'rgba(255, 165, 0, 0.2)'; // Amber for medium scores
-    } else {
-        return 'rgba(0, 128, 0, 0.2)'; // Green for high scores
-    }
-}
+    const backgroundColor = determineBackgroundColor(averageScores);
 
-// Assuming 'averageScores' is your array of score values
-const backgroundColor = determineBackgroundColor(averageScores);
-
-// Radar Chart Configuration
-window.myRadarChart = new Chart(ctx, {
-    type: 'radar',
-    data: {
-        labels: labels,
-        datasets: [{
-            label: 'Average Scores',
-            data: averageScores,
-            backgroundColor: backgroundColor, // Use the determined background color
-            // borderColor: 'rgba(93, 63, 211, 1)',
-            borderColor: 'rgba(0, 0, 0, 0)',
-
-        }]
-    },
-    options: {
-        scales: {
-            r: {
-                beginAtZero: true,
-                max: 10,
-                angleLines: {
-                    display: true
-                },
-                ticks: {
-                    color: "#000000",
-                    font: {
-                        size: 14
-                    }
-                },
-                pointLabels: {
-                    color: "#000000",
-                    font: {
-                        size: 18
-                    }
-                }
-            }
+    // Radar Chart Configuration
+    window.myRadarChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Average Scores',
+                data: averageScores,
+                backgroundColor: backgroundColor,
+                borderColor: 'rgba(0, 0, 0, 0)',
+            }]
         },
-        plugins: {
-            legend: {
-                labels: {
-                    font: {
-                        size: 14
+        options: {
+            scales: {
+                r: {
+                    beginAtZero: true,
+                    max: 10,
+                    angleLines: {
+                        display: true
+                    },
+                    ticks: {
+                        color: "#000000",
+                        font: {
+                            size: 14
+                        }
+                    },
+                    pointLabels: {
+                        color: "#000000",
+                        font: {
+                            size: 18
+                        }
                     }
                 }
             },
-            title: {
-                display: true,
-                text: 'Impact Diagnostic Assessment',
-                color: "#000000",
-                font: {
-                    size: 20
+            plugins: {
+                legend: {
+                    display: false, // Disable the default legend
+                },
+                title: {
+                    display: true,
+                    text: 'Impact Diagnostic Assessment',
+                    color: "#000000",
+                    font: {
+                        size: 20
+                    }
                 }
             }
         }
-    }
-});
+    });
 
-        // Make the download button visible
+    // Custom Legend Display
+    // Legend HTML content
+    const legendHtml = `
+        <div class="custom-legend">
+            <h4>Score Legend</h4>
+            <ul>
+                <li><span style="background-color: rgba(255, 0, 0, 0.2);">&nbsp;&nbsp;&nbsp;&nbsp;</span> Red: 0-4 (Low)</li>
+                <li><span style="background-color: rgba(255, 165, 0, 0.2);">&nbsp;&nbsp;&nbsp;&nbsp;</span> Amber: 5-8 (Medium)</li>
+                <li><span style="background-color: rgba(0, 128, 0, 0.2);">&nbsp;&nbsp;&nbsp;&nbsp;</span> Green: 9-10 (High)</li>
+            </ul>
+        </div>
+    `;
+
+    // Insert the legend into the legend-container
+    document.getElementById('legend-container').innerHTML = legendHtml;
+
+
+    // Make the download button visible
     document.getElementById('downloadResultsButton').style.display = 'block';
 }
 
