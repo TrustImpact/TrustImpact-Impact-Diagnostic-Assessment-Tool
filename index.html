@@ -178,7 +178,7 @@
 <!-- Purpose Alignment Tool Score Container -->
 <div id="PurposeAlignmentToolScore" class="container">
     <h1>Purpose Alignment Tool Score</h1>
-    <h4>What was your team's alignment to purpose score?</h4>
+    <h4>1) What was your team's alignment to purpose score?</h4>
     <br>
 
     <select id="alignmentScoreSelect" onchange="calculateScore('alignmentScoreSelect', 'outputPurposeAlignmentScore')">
@@ -206,7 +206,7 @@
     <h1>Purpose Statement Assessment</h1>
     
     <div class="question">
-        <h4>To what extent is your purpose statement succinct?</h4>
+        <h4>2a) To what extent is your purpose statement succinct?</h4>
         <p>(By succinct we anticipate this to be under 10 words and to the point)</p>
         <br>
         <select id="lengthScoreSelect" onchange="calculateScore('lengthScoreSelect', 'outputLengthScore')">
@@ -229,7 +229,7 @@
     </div>
 
     <div class="question">
-        <h4>How prevalent are common words such as support in your purpose statement?</h4>
+        <h4>2.b) How prevalent are common words such as support in your purpose statement?</h4>
         <br>
         <select id="commonwordsselect" onchange="calculateScore('commonwordsselect', 'outputcommonwordScore')">
             <option value="N/A">Please Select</option>
@@ -252,7 +252,7 @@
 
 
     <div class="question">
-        <h4>To what extent is do you feel your purpose statement is unique to your organisation?</h4>
+        <h4>2.c) To what extent is do you feel your purpose statement is unique to your organisation?</h4>
         <br>
         <select id="uniqueselect" onchange="calculateScore('uniqueselect', 'outputuniqueScore')">
             <option value="N/A">Please Select</option>
@@ -274,7 +274,7 @@
     </div>
 
     <div class="question">
-        <h4>On a scale of 0 - 10, how clear is your purpose statement?</h4>
+        <h4>2d) On a scale of 0 - 10, how clear is your purpose statement?</h4>
         <p>(i.e. free from jargon and easy to understand)</p>
         <br>
         <select id="jargonselect" onchange="calculateScore('jargonselect', 'outputjargonScore')">
@@ -297,7 +297,7 @@
     </div>
 
     <div class="question">
-        <h4>On a scale of 0 - 10, how focussed is your purpose statement?</h4>
+        <h4>2e) On a scale of 0 - 10, how focussed is your purpose statement?</h4>
         <p>(i.e. does it explicitly capture what you are trying to achieve as an organisation and the method for achieving this)</p>
         <br>
         <select id="focusselect" onchange="calculateScore('focusselect', 'outputfocusScore')">
@@ -325,7 +325,7 @@
         <h1>Impact Leadership Assessment</h1>
     
     <div class="question">
-        <h4>On a scale of 0 - 10, to what extent would you agree that impact is led from the top of your organisation?</h4>
+        <h4>3a) On a scale of 0 - 10, to what extent would you agree that impact is led from the top of your organisation?</h4>
         <p>(i.e. do your senior leaders regularly discuss impact and take action to improve it?)</p>    
         <select id="impactledselect" onchange="calculateScore('impactledselect', 'outputledScore')">
             <option value="N/A">Please Select</option>
@@ -347,7 +347,7 @@
     </div>
 
     <div class="question">   
-        <h4>To what extent do you agree that people in your organisation are excited about delivering social impact?</h4>
+        <h4>3b) To what extent do you agree that people in your organisation are excited about delivering social impact?</h4>
         <br>
         <select id="appetiteselect" onchange="calculateScore('appetiteselect', 'outputappetiteScore')">
             <option value="N/A">Please Select</option>
@@ -369,7 +369,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent would you agree impact work has been succesfully undertaken in the organisation?</h4>
+        <h4>3c) To what extent would you agree impact work has been succesfully undertaken in the organisation?</h4>
         <br>
         <select id="desireselect" onchange="calculateScore('desireselect', 'outputdesireScore')">
             <option value="N/A">Please Select</option>
@@ -391,7 +391,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent do you feel the organisation is willing to undertake further work around impact?</h4>
+        <h4>3d) To what extent do you feel the organisation is willing to undertake further work around impact?</h4>
         <br>
         <select id="cultureselect" onchange="calculateScore('cultureselect', 'outputcultureScore')">
             <option value="N/A">Please Select</option>
@@ -413,7 +413,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent would you agree that your organisation has a culture of understanding and measuring impact?</h4>
+        <h4>3e) To what extent would you agree that your organisation has a culture of understanding and measuring impact?</h4>
         <br>
         <br>
         <select id="blockersselect" onchange="calculateScore('blockersselect', 'outputblockerscore')">
@@ -437,7 +437,7 @@
 
 
     <div class="question">
-        <h4>How easy would it be to achieve buy-in from key people in your organisation to improve your impact?</h4>
+        <h4>3f) How easy would it be to achieve buy-in from key people in your organisation to improve your impact?</h4>
         <br>
         <select id="buyinselect" onchange="calculateScore('buyinselect', 'outputbuyinScore')">
             <option value="N/A">Please Select</option>
@@ -465,10 +465,11 @@
     <div id="ToCScore" class="container">
         <h1>Theory of Change Assessment</h1>
     <div class="question">
-        <h4>On a scale of 0 - 10 how complete do you believe your theory of change is?</h4>
+        <h4>4a) On a scale of 0 - 10 how complete do you believe your theory of change is?</h4>
         <p>(Does it include your resources, activities, outputs, outcomes, and impact?)</p>
         <select id="TOCselect" onchange="calculateScore('TOCselect', 'outputTOCScore')">
             <option value="N/A">Please Select</option>
+            <option value="0">0 - We do not have a theory of change</option>
             <option value="0">0 - Not at all</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -487,7 +488,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent is your theory of change used to drive the work of your organisation?</h4>
+        <h4>4b) To what extent is your theory of change used to drive the work of your organisation?</h4>
         <br>
         <select id="orgdriveselect" onchange="calculateScore('orgdriveselect', 'outputorgdriveScore')">
             <option value="N/A">Please Select</option>
@@ -509,7 +510,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent do you think your organisation would be willing to revisit your theory of change?</h4>
+        <h4>4c) To what extent do you think your organisation would be willing to revisit your theory of change?</h4>
         <br>
         <select id="upforchangeselect" onchange="calculateScore('upforchangeselect', 'outputupforchangeScore')">
             <option value="N/A">Please Select</option>
@@ -531,7 +532,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent do you agree that your theory of change is simple and straight forward?</h4>
+        <h4>4d) To what extent do you agree that your theory of change is simple and straight forward?</h4>
         <p>Is it easily understood, non-confusing, one one page?</p>
         <select id="complexselect" onchange="calculateScore('complexselect', 'outputcomplexScore')">
             <option value="N/A">Please Select</option>
@@ -553,7 +554,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent would you agree that the measures in your theory of change are measures of impact and not measures of reach?</h4>
+        <h4>4e) To what extent would you agree that the measures in your theory of change are measures of impact and not measures of reach?</h4>
         <br>
         <br>
         <select id="correctlydefinedselect" onchange="calculateScore('correctlydefinedselect', 'outputcorrectlydefinedscore')">
@@ -582,7 +583,7 @@
     <div id="MWMScore" class="container">
         <h1>Measurement Framework Assessment</h1>
     <div class="question">  
-        <h4>On a scale of 0-10, Is your framework feasable, cost effective, time efficient, resource appropriate and producing good quality, and reliable data?</h4>
+        <h4>5a) On a scale of 0-10, Is your framework feasable, cost effective, time efficient, resource appropriate and producing good quality, and reliable data?</h4>
         <br>
         <select id="MWMfeasibilityselect" onchange="calculateScore('MWMfeasibilityselect', 'outputMWMfeasibleScore')">
             <option value="N/A">Please Select</option>
@@ -604,7 +605,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extend do you feel you are measuring too many things?</h4>
+        <h4>5b) To what extend do you feel you are measuring too many things?</h4>
         <br>
         <select id="numberofindicatorsselect" onchange="calculateScore('numberofindicatorsselect', 'outputnumberofindicatorsScore')">
             <option value="N/A">Please Select</option>
@@ -626,7 +627,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent do you feel that you are collecting only output rather than outcome measures?</h4>
+        <h4>5c) To what extent do you feel that you are collecting only output rather than outcome measures?</h4>
         <br>
         <select id="percentageofindicatorsselect" onchange="calculateScore('percentageofindicatorsselect', 'outputpercentageofindicatorsScore')">
             <option value="N/A">Please Select</option>
@@ -648,7 +649,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent do you believe your outcomes measures are based on validated scales?</h4>
+        <h4>5d) To what extent do you believe your outcomes measures are based on validated scales?</h4>
         <br>
         <select id="validatedindicatorsselect" onchange="calculateScore('validatedindicatorsselect', 'outputvalidatedindicatorsScore')">
             <option value="N/A">Please Select</option>
@@ -670,7 +671,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent do you feel you can compare your organisations impact to others?</h4>
+        <h4>5e) To what extent do you feel you can compare your organisations impact to others?</h4>
         <br>
         <br>
         <select id="externalddataselect" onchange="calculateScore('externalddataselect', 'outputexternaldataScore')">
@@ -693,7 +694,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent are you able to use demographic measures to assess your reaching your target population?</h4>
+        <h4>5f) To what extent are you able to use demographic measures to assess your reaching your target population?</h4>
         <br>
         <select id="reachdataselect" onchange="calculateScore('reachdataselect', 'outputreachdataScore')">
             <option value="N/A">Please Select</option>
@@ -715,7 +716,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent are you using factors to interogate your outcome measures by characteristic?</h4>
+        <h4>5g) To what extent are you using factors to interogate your outcome measures by characteristic?</h4>
         <br>
         <select id="segmentselect" onchange="calculateScore('segmentselect', 'outputsegmentScore')">
             <option value="N/A">Please Select</option>
@@ -742,7 +743,7 @@
     <div id="DataScore" class="container">
         <h1>Data Assessment</h1>
     <div class="question">
-        <h4>To what extent do you use defined and structured data fields rather than free text?</h4>
+        <h4>6a) To what extent do you use defined and structured data fields rather than free text?</h4>
         <br>
         <select id="Datastructureselect" onchange="calculateScore('Datastructureselect', 'outputDataStructureScore')">
             <option value="N/A">Please Select</option>
@@ -764,7 +765,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent are you able to use your data and systems to track participants over time?</h4>
+        <h4>6b) To what extent are you able to use your data and systems to track participants over time?</h4>
         <p>(do you utilse consistent unique identifiers throughout your data and systems?)</p>
         <select id="Datauniquedataselect" onchange="calculateScore('Datauniquedataselect', 'outputuniquedataScore')">
             <option value="N/A">Please Select</option>
@@ -786,7 +787,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent would you describe your staff as 'data savy'?</h4>
+        <h4>6c) To what extent would you describe your staff as 'data savy'?</h4>
         <br>
         <select id="Dataexpertiseselect" onchange="calculateScore('Dataexpertiseselect', 'outputexpertiseScore')">
             <option value="N/A">Please Select</option>
@@ -809,7 +810,7 @@
 
 
     <div class="question">
-        <h4>How confident are you that you have complete and useful datasets collected from beneficairies? </h4>
+        <h4>6d) How confident are you that you have complete and useful datasets collected from beneficairies? </h4>
         <br>
         <select id="Datacompletenessselect" onchange="calculateScore('Datacompletenessselect', 'outputcompletenessScore')">
             <option value="N/A">Please Select</option>
@@ -831,7 +832,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent is your data quality checked and maintained regularly?</h4>
+        <h4>6e) To what extent is your data quality checked and maintained regularly?</h4>
         <p>(Is your data clearly timestamped, the quality checked and updated regularly?)</p>
         <select id="Datatimestampselect" onchange="calculateScore('Datatimestampselect', 'outputtimestampScore')">
             <option value="N/A">Please Select</option>
@@ -853,7 +854,7 @@
     </div>
 
     <div class="question">
-        <h4>Is data structure and format consistent over time?</h4>
+        <h4>6f) Is data structure and format consistent over time?</h4>
         <br>
         <select id="Dataconsistencyselect" onchange="calculateScore('Dataconsistencyselect', 'outputconsistencyScore')">
             <option value="N/A">Please Select</option>
@@ -875,7 +876,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent do you believe your data is being effectively collected and reported on?</h4>
+        <h4>6g) To what extent do you believe your data is being effectively collected and reported on?</h4>
         <br>
         <select id="Dataeffectivenessselect" onchange="calculateScore('Dataeffectivenessselect', 'outputeffectivenessScore')">
             <option value="N/A">Please Select</option>
@@ -897,7 +898,7 @@
     </div>
 
     <div class="question">
-        <h4>To what extent is your data capture automated and free from manual processes?</h4>
+        <h4>6h) To what extent is your data capture automated and free from manual processes?</h4>
         <br>
         <select id="Dataautomaticityselect" onchange="calculateScore('Dataautomaticityselect', 'outputautomaticityScore')">
             <option value="N/A">Please Select</option>
@@ -925,7 +926,7 @@
     <div id="SystemScore" class="container">
         <h1>System Assessment</h1>
     <div class="question">
-        <h4>Is the number of systems being operated appropriate for the organisation?</h4>
+        <h4>7a) Is the number of systems being operated appropriate for the organisation?</h4>
         <br>
         <select id="numberofsystemsselect" onchange="calculateScore('numberofsystemsselect', 'outputnumberofsystemsScore')">
             <option value="N/A">Please Select</option>
@@ -947,7 +948,7 @@
     </div>
 
     <div class="question">
-        <h4>Are the systems modern and fit for purpose?</h4>
+        <h4>7b) Are the systems modern and fit for purpose?</h4>
         <br>
         <select id="systemfitnessselect" onchange="calculateScore('systemfitnessselect', 'outputsystemfitnessScore')">
             <option value="N/A">Please Select</option>
@@ -969,7 +970,7 @@
     </div>
 
     <div class="question">
-        <h4>Does the organisation have the appropriate personnel and support in place to run their systems?</h4>
+        <h4>7c) Does the organisation have the appropriate personnel and support in place to run their systems?</h4>
         <br>
         <br>
         <select id="systempersonnelselect" onchange="calculateScore('systempersonnelselect', 'outputsystempersonnelScore')">
@@ -992,7 +993,7 @@
     </div>
 
     <div class="question">
-        <h4>Is it possible for the client to customise impact relevant systems without external support services?</h4>
+        <h4>7d) Is it possible for the client to customise impact relevant systems without external support services?</h4>
         <br>
         <select id="systempcustomisationselect" onchange="calculateScore('systempcustomisationselect', 'outputsystemcustomisationScore')">
             <option value="N/A">Please Select</option>
@@ -1014,7 +1015,7 @@
     </div>
 
     <div class="question">
-        <h4>If you have multiple systems, What is the capability for those systems to interact with each other?</h4>
+        <h4>7e) If you have multiple systems, What is the capability for those systems to interact with each other?</h4>
         <br>
         <br>
         <select id="systemconnectivityselect" onchange="calculateScore('systemconnectivityselect', 'outputsystemconnectivityScore')">
