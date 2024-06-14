@@ -1223,16 +1223,16 @@ function getAverageScoresAndLabels() {
     return { labels, averageScores };
 }
 
-function determineBackgroundColor(averageScores) {
+ function determineBackgroundColor(averageScores) {
     const total = averageScores.reduce((acc, score) => acc + score, 0);
     const averageScore = total / averageScores.length;
 
     if (averageScore <= 4) {
-        return 'rgba(255, 0, 0, 0.2)'; // Red for low scores
+        return 'rgba(232, 232, 232, 1)'; // Changed from Red to grey for low scores
     } else if (averageScore <= 7) {
-        return 'rgba(255, 165, 0, 0.2)'; // Amber for medium scores
+        return 'rgba(232, 232, 232, 1)'; // Changed from amber to grey for medium scores
     } else {
-        return 'rgba(0, 128, 0, 0.2)'; // Green for high scores
+        return 'rgba(232, 232, 232, 1)'; // Changed from green to grey for high scores
     }
 }
 
@@ -1301,16 +1301,16 @@ function generateRadarChart() {
 
     // Custom Legend Display
     // Legend HTML content
-    const legendHtml = `
-        <div class="custom-legend">
-            <h4>Score Legend</h4>
-            <ul>
-                <li><span style="background-color: rgba(255, 0, 0, 0.2);">&nbsp;&nbsp;&nbsp;&nbsp;</span> Red: 0-4 (Low)</li>
-                <li><span style="background-color: rgba(255, 165, 0, 0.2);">&nbsp;&nbsp;&nbsp;&nbsp;</span> Amber: 5-8 (Medium)</li>
-                <li><span style="background-color: rgba(0, 128, 0, 0.2);">&nbsp;&nbsp;&nbsp;&nbsp;</span> Green: 9-10 (High)</li>
-            </ul>
-        </div>
-    `;
+    //const legendHtml = `
+    //    <div class="custom-legend">
+    //        <h4>Score Legend</h4>
+    //        <ul>
+    //            <li><span style="background-color: rgba(255, 0, 0, 0.2);">&nbsp;&nbsp;&nbsp;&nbsp;</span> Red: 0-4 (Low)</li>
+    //            <li><span style="background-color: rgba(255, 165, 0, 0.2);">&nbsp;&nbsp;&nbsp;&nbsp;</span> Amber: 5-8 (Medium)</li>
+    //            <li><span style="background-color: rgba(0, 128, 0, 0.2);">&nbsp;&nbsp;&nbsp;&nbsp;</span> Green: 9-10 (High)</li>
+    //        </ul>
+    //    </div>
+    //`;
 
     // Insert the legend into the legend-container
     document.getElementById('legend-container').innerHTML = legendHtml;
