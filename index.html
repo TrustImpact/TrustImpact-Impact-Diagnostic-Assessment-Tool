@@ -418,7 +418,6 @@
     <div class="question">
         <h4>3e) To what extent would you agree that your organisation currently has a culture of understanding and measuring impact?</h4>
         <br>
-        <br>
         <select id="blockersselect" onchange="calculateScore('blockersselect', 'outputblockerscore')">
             <option value="N/A">Please Select</option>
             <option value="0">0 - Not at all</option>
@@ -471,7 +470,7 @@
     <div class="question">
         <h4>4a) On a scale of 0 - 10 how complete do you believe your theory of change is?</h4>
         <p>(Does it include your resources, activities, outputs, outcomes, and impact?)</p>
-        <br>
+        
         <select id="TOCselect" onchange="calculateScore('TOCselect', 'outputTOCScore')">
             <option value="N/A">Please Select</option>
             <option value="0">0 - We do not have a theory of change</option>
@@ -561,7 +560,6 @@
 
     <div class="question">
         <h4>4e) To what extent would you agree that the measures in your theory of change are measures of impact and not measures of reach?</h4>
-        <br>
         <br>
         <select id="correctlydefinedselect" onchange="calculateScore('correctlydefinedselect', 'outputcorrectlydefinedscore')">
             <option value="N/A">Please Select</option>
@@ -678,8 +676,6 @@
 
     <div class="question">
         <h4>5e) To what extent do you feel you can compare your organisations impact to others?</h4>
-        <br>
-        <br>
         <select id="externalddataselect" onchange="calculateScore('externalddataselect', 'outputexternaldataScore')">
             <option value="N/A">Please Select</option>
             <option value="0">0 - Not at all</option>
@@ -701,7 +697,6 @@
 
     <div class="question">
         <h4>5f) To what extent are you able to use demographic measures to assess your reaching your target population?</h4>
-        <br>
         <select id="reachdataselect" onchange="calculateScore('reachdataselect', 'outputreachdataScore')">
             <option value="N/A">Please Select</option>
             <option value="0">0 - Not at all</option>
@@ -1021,9 +1016,7 @@
     </div>
 
     <div class="question">
-        <h4>7e) If you have multiple systems, What is the capability for those systems to interact with each other?</h4>
-        <br>
-        <br>
+        <h4>7e) If applicable, Are your systems able interact with each other?</h4>
         <select id="systemconnectivityselect" onchange="calculateScore('systemconnectivityselect', 'outputsystemconnectivityScore')">
             <option value="N/A">Please Select</option>
             <option value="N/A">N/A</option>     
@@ -1037,7 +1030,7 @@
             <option value="7">7</option>
             <option value="8">8</option>
             <option value="9">9</option>
-            <option value="10">10 - Extremely</option>
+            <option value="10">10 - Seamlessly</option>
         </select>
         <div class="output-score">
             System Connectivity Score: <span id="outputsystemconnectivityScore">0</span> <!-- Default score -->
