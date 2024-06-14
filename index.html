@@ -179,6 +179,7 @@
 <div id="PurposeAlignmentToolScore" class="container">
     <h1>Purpose Alignment Tool Score</h1>
     <h4>1) What was your team's alignment to purpose score?</h4>
+    <p>(Please use the overall alignment score)</p>
     <br>
 
     <select id="alignmentScoreSelect" onchange="calculateScore('alignmentScoreSelect', 'outputPurposeAlignmentScore')">
@@ -207,7 +208,7 @@
     
     <div class="question">
         <h4>2a) To what extent is your purpose statement succinct?</h4>
-        <p>(By succinct we anticipate this to be under 10 words and to the point)</p>
+        <p>(by succinct we anticipate this to be under 10 words and to the point)</p>
         <br>
         <select id="lengthScoreSelect" onchange="calculateScore('lengthScoreSelect', 'outputLengthScore')">
             <option value="N/A">Please Select</option>
@@ -230,6 +231,7 @@
 
     <div class="question">
         <h4>2.b) How prevalent are common words such as support in your purpose statement?</h4>
+        <p>(Please note this scale has been inverted for assessment purposes)</p>
         <br>
         <select id="commonwordsselect" onchange="calculateScore('commonwordsselect', 'outputcommonwordScore')">
             <option value="N/A">Please Select</option>
@@ -243,7 +245,7 @@
             <option value="3">7</option>
             <option value="2">8</option>
             <option value="1">9</option>
-            <option value="0">10 - Extremely</option>
+            <option value="0">10 - Extremely Prevalent</option>
         </select>
         <div class="output-score">
             Common words Score: <span id="outputcommonwordScore">0</span> <!-- Default score -->
@@ -252,7 +254,7 @@
 
 
     <div class="question">
-        <h4>2.c) To what extent is do you feel your purpose statement is unique to your organisation?</h4>
+        <h4>2.c) To what extent do you feel your purpose statement is unique to your organisation?</h4>
         <br>
         <select id="uniqueselect" onchange="calculateScore('uniqueselect', 'outputuniqueScore')">
             <option value="N/A">Please Select</option>
@@ -326,7 +328,7 @@
     
     <div class="question">
         <h4>3a) On a scale of 0 - 10, to what extent would you agree that impact is led from the top of your organisation?</h4>
-        <p>(i.e. do your senior leaders regularly discuss impact and take action to improve it?)</p>    
+        <p>(i.e. do your senior leaders regularly discuss impact and take action to improve it? Are your board and senior team aligned?)</p>
         <select id="impactledselect" onchange="calculateScore('impactledselect', 'outputledScore')">
             <option value="N/A">Please Select</option>
             <option value="0">0 - Not at all</option>
@@ -369,7 +371,8 @@
     </div>
 
     <div class="question">
-        <h4>3c) To what extent would you agree impact work has been successfully undertaken in the organisation?</h4>
+        <h4>3c) To what extent would you agree work around understanding and measuring impact has been successfully undertaken in the organisation?</h4>
+        <p>(i.e. has any historical work undertaken been successful?)</p>
         <br>
         <select id="desireselect" onchange="calculateScore('desireselect', 'outputdesireScore')">
             <option value="N/A">Please Select</option>
@@ -391,7 +394,7 @@
     </div>
 
     <div class="question">
-        <h4>3d) To what extent do you feel the organisation is willing to undertake further work around impact?</h4>
+        <h4>3d) To what extent do you feel the organisation is willing to undertake further work around understanding and measuring impact?</h4>
         <br>
         <select id="cultureselect" onchange="calculateScore('cultureselect', 'outputcultureScore')">
             <option value="N/A">Please Select</option>
@@ -413,7 +416,7 @@
     </div>
 
     <div class="question">
-        <h4>3e) To what extent would you agree that your organisation has a culture of understanding and measuring impact?</h4>
+        <h4>3e) To what extent would you agree that your organisation currently has a culture of understanding and measuring impact?</h4>
         <br>
         <br>
         <select id="blockersselect" onchange="calculateScore('blockersselect', 'outputblockerscore')">
@@ -437,7 +440,7 @@
 
 
     <div class="question">
-        <h4>3f) How easy would it be to achieve buy-in from key people in your organisation to improve your impact?</h4>
+        <h4>3f) How easy would it be to achieve buy-in from key people in your organisation to develop impact practices and measure them?</h4>
         <br>
         <select id="buyinselect" onchange="calculateScore('buyinselect', 'outputbuyinScore')">
             <option value="N/A">Please Select</option>
@@ -464,9 +467,11 @@
     <!-- Theory of Change Container -->
     <div id="ToCScore" class="container">
         <h1>Theory of Change Assessment</h1>
+
     <div class="question">
         <h4>4a) On a scale of 0 - 10 how complete do you believe your theory of change is?</h4>
         <p>(Does it include your resources, activities, outputs, outcomes, and impact?)</p>
+        <br>
         <select id="TOCselect" onchange="calculateScore('TOCselect', 'outputTOCScore')">
             <option value="N/A">Please Select</option>
             <option value="0">0 - We do not have a theory of change</option>
@@ -485,6 +490,7 @@
         <div class="output-score">
             ToC Score: <span id="outputTOCScore">0</span> <!-- Default score -->
         </div>
+        <p>If no theory of change exists please disregard the rest of this section</p>
     </div>
 
     <div class="question">
