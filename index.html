@@ -1228,11 +1228,11 @@ function getAverageScoresAndLabels() {
     const averageScore = total / averageScores.length;
 
     if (averageScore <= 4) {
-        return 'rgba(232, 232, 232, 1)'; // Changed from Red to grey for low scores
+        return 'rgba(232, 232, 232, 0.6)'; // Changed from Red to grey for low scores
     } else if (averageScore <= 7) {
-        return 'rgba(232, 232, 232, 1)'; // Changed from amber to grey for medium scores
+        return 'rgba(232, 232, 232, 0.6)'; // Changed from amber to grey for medium scores
     } else {
-        return 'rgba(232, 232, 232, 1)'; // Changed from green to grey for high scores
+        return 'rgba(232, 232, 232, 0.6)'; // Changed from green to grey for high scores
     }
 }
 
