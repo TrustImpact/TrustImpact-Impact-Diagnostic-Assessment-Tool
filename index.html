@@ -6,8 +6,6 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <title>Impact Diagnosis Assessment Tool</title>
 <link href="https://trst.uk/css/app.css" rel="stylesheet">
-<!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">-->
-<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap">-->
 <script src="https://kit.fontawesome.com/19a0336ebe.js" crossorigin="anonymous"></script>
 <style>
     body {
@@ -19,13 +17,6 @@
         min-height: 100vh;
         background-color: #ffffff;
     }
-    .vc_custom_1707898486337 {
-        background: rgba(242, 242, 242, 0.09) url(https://www.trustimpact.com/wp-content/uploads/2020/09/trust-impact-logo.png) 
-    }
-
-    .vc_custom_1707894194125 {
-        margin-top: 80px !important;
-    }
     #header {
         width: 100%;
         background-color: #FFFFFF; /* Adjust the background color as needed */
@@ -36,35 +27,26 @@
     #header img {
         height: 100px; 
     }
-
     div#form-container {
         background-color: #ffffff;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
         border: 5px solid #f7d32e;
-        max-width: 600px;  /* Adjust this value to your preference */
+        max-width: 1400px;
         width: 100%;
-        margin: auto;  /* This will center the container */
+        margin: auto;
     }
-    h1 {
-        color: #000000;
-        margin-bottom: 20px;
-    }
-    h2 {
-        color: #000000;
-    }
-    h3 {
+    h1, h2, h3, h4, p {
         color: #000000;
     }
     h4 {
-        color: #000000;
         font-weight: normal;
     }
     p {
-    font-size: 60%; /* Relative to the font size of the element's parent */
+        font-size: 60%;
     }
-    select {
+    select, button {
         padding: 10px;
         border-radius: 4px;
         border: 1px solid #ddd;
@@ -74,10 +56,7 @@
         background-color: #5D3FD3;
         color: #fff;
         border: none;
-        padding: 10px 20px;
-        border-radius: 4px;
         cursor: pointer;
-        margin-top: 20px;
         font-weight: bold;
     }
     button:hover {
@@ -89,13 +68,13 @@
     .containers-row {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around; /* Or 'space-between' as per your design needs */
+        justify-content: space-around;
         align-items: flex-start;
         width: 100%;
     }
     .container {
-        flex: 0 0 30%; /* Each box will take up roughly 30% of the container width */
-        margin: 10px; /* Adjust as needed for spacing */
+        flex: 0 0 30%;
+        margin: 10px;
     }
     .output-score {
         display: none;
@@ -108,54 +87,50 @@
         font-weight: bold;
     }
     select {
-        width: 100%; /* Ensures that select occupies the full width of its parent container */
-        height: 40px; /* Sets a fixed height for all select boxes */
-        padding: 5px 10px; /* Adds some padding inside the select box for better text visibility */
-        font-size: 16px; /* Adjusts the font size for the options */
-        border: 1px solid #ddd; /* Adds a border to the select box */
-        border-radius: 4px; /* Rounds the corners of the select box */
-        box-sizing: border-box; /* Ensures padding does not affect the final calculated width */
-        margin-top: 10px; /* Keeps the existing top margin for spacing */
-        background-color: white; /* Optional: sets a background color */
-        cursor: pointer; /* Changes cursor to pointer to indicate it's selectable */
+        width: 100%;
+        height: 40px;
+        padding: 5px 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 10px;
+        background-color: white;
+        cursor: pointer;
     }
     select:hover {
-        border-color: #aaa; /* Changes border color on hover */
+        border-color: #aaa;
     }
-
     select:focus {
-        outline: none; /* Removes the default focus outline */
-        border-color: #5D3FD3; /* Adds a custom border color on focus */
+        outline: none;
+        border-color: #5D3FD3;
     }
     .chart-container {
         display: flex;
-        align-items: center; /* Align items vertically */
+        align-items: center;
     }
-
     #legend-container {
-        margin-left: 20px; /* Add some space between the chart and the legend */
-        /* Additional styling as needed */
+        margin-left: 20px;
     }
-
     .custom-legend ul {
-        list-style-type: none; /* Removes bullet points */
-        padding-left: 0; /* Removes padding on the left side that indents list items */
-        margin-left: 0; /* Ensures the list aligns with the left edge of its container */
+        list-style-type: none;
+        padding-left: 0;
+        margin-left: 0;
     }
-
     .custom-legend {
-        text-align: left; /* Aligns the text to the left */
+        text-align: left;
     }
 </style>
 </head>
 
-    <div id="header">
-        <img src="https://www.trustimpact.com/wp-content/uploads/2020/09/trust-impact-logo.png" alt="Trust Impact Logo" style="height: 100px;"> 
-    </div>
-
 <body>
 
-        <h1>Details</h1>
+<div id="header">
+    <img src="https://www.trustimpact.com/wp-content/uploads/2020/09/trust-impact-logo.png" alt="Trust Impact Logo" style="height: 100px;">
+</div>
+
+<div id="form-container">
+    <h1>Details</h1>
     <div class="question">
         <label for="organisationName">Organisation Name:</label>
         <input type="text" id="organisationName" name="organisationName" placeholder="Enter organisation name" required>
@@ -172,7 +147,6 @@
         <label for="DataConsultant">Data Consultant:</label>
         <input type="text" id="DataConsultant" name="DataConsultant" placeholder="Enter Data Consultant name" required>
     </div>
-</div>
 
 <!--<div class="containers-row"> -->
 <!-- Purpose Alignment Tool Score Container -->
@@ -1039,130 +1013,93 @@
 </div>
 </div>
     
-<!-- Score Summary Table -->
-<div id="scoreSummary">
-    <h1>Score Summary</h1>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Section</th>
-                <th>Average Score</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Purpose Alignment Score</td>
-                <td id="totalPurposeAlignmentToolScore">0</td>
-            </tr>
-            <tr>
-                <td>Purpose Statement Score</td>
-                <td id="totalPurposeStatementAssessmentScore">0</td>
-            </tr>
-            <tr>
-                <td>Impact Leadership Score</td>
-                <td id="totalImpactLeadershipScore">0</td>
-            </tr>
-            <tr>
-                <td>Theory of Change Score</td>
-                <td id="totalToCScore">0</td>
-            </tr>
-            <tr>
-                <td>Measurement Framework Score</td>
-                <td id="totalMWMScore">0</td>
-            </tr>
-            <tr>
-                <td>Data Review Score</td>
-                <td id="totalDataScore">0</td>
-            </tr>
-            <tr>
-                <td>System Review Score</td>
-                <td id="totalSystemScore">0</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-</div>
+    <!-- Score Summary Table -->
+    <div id="scoreSummary">
+        <h1>Score Summary</h1>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Section</th>
+                    <th>Average Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Purpose Alignment Score</td>
+                    <td id="totalPurposeAlignmentToolScore">0</td>
+                </tr>
+                <tr>
+                    <td>Purpose Statement Score</td>
+                    <td id="totalPurposeStatementAssessmentScore">0</td>
+                </tr>
+                <tr>
+                    <td>Impact Leadership Score</td>
+                    <td id="totalImpactLeadershipScore">0</td>
+                </tr>
+                <tr>
+                    <td>Theory of Change Score</td>
+                    <td id="totalToCScore">0</td>
+                </tr>
+                <tr>
+                    <td>Measurement Framework Score</td>
+                    <td id="totalMWMScore">0</td>
+                </tr>
+                <tr>
+                    <td>Data Review Score</td>
+                    <td id="totalDataScore">0</td>
+                </tr>
+                <tr>
+                    <td>System Review Score</td>
+                    <td id="totalSystemScore">0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-<div id="overallAverageScoreDisplay">
-    <h2>Overall Average Score: <span id="displayAverageScore">0</span></h2>
-</div>
+    <div id="overallAverageScoreDisplay">
+        <h2>Overall Average Score: <span id="displayAverageScore">0</span></h2>
+    </div>
 
-    <!-- The button to generate the radar chart should probably be here -->
-    
-    <button onclick="generateRadarChart()">Generate Radar Chart</button>
-
-
+    <button onclick="generateStellarChart()">Generate Chart</button>
     <button id="downloadResultsButton" onclick="downloadResultsWithCalculatedTable()">Download Complete Results</button>
-<br>
-<br>
-<br>
-
-
-
 </div>
 
 <!-- Radar Chart Container -->
 <div class="chart-container">
     <canvas id="myRadarChart" width="800" height="800"></canvas>
-    <!-- Placeholder for the legend to be inserted dynamically -->
     <div id="legend-container"></div>
 </div>
 
-
 <script>
-
 function collectDataForAnalysis() {
-    let data = []; // Initialize an empty array to hold your data
-
+    let data = [];
     document.querySelectorAll('.container select').forEach(function(select) {
         let questionText = select.closest('div.question, div').querySelector('h4, p').textContent.trim();
         let selectedOptionText = select.options[select.selectedIndex].text;
-
-        // Check if the selected option is "N/A"
-        if (selectedOptionText === "N/A") {
-            // Skip this question if the response is "N/A"
-            return; // Continue to the next iteration
-        }
-
-        // Otherwise, collect the question and its response
-        data.push({
-            question: questionText,
-            response: selectedOptionText
-        });
+        if (selectedOptionText === "N/A") return;
+        data.push({ question: questionText, response: selectedOptionText });
     });
-
-    // Proceed with analysis or CSV generation using the filtered data
 }
 
-
-// Correctly initialize the score table by hiding all rows initially
 function initializeScoreTable() {
     document.querySelectorAll('#scoreSummary tbody tr').forEach(function(row) {
-        row.style.display = 'none'; // Initially hide all summary rows
+        row.style.display = 'none';
     });
 }
 
-// Existing functions: calculateScore, updateScoreTable, getAverageScoresAndLabels, generateRadarChart
-
-// Call initialize at the start to set up the page correctly.
 initializeScoreTable();
 
 function calculateScore(selectId, outputId) {
     var selectElement = document.getElementById(selectId);
     var score = parseInt(selectElement.value, 10);
     document.getElementById(outputId).textContent = score;
-
-    // Update score immediately after selection
     updateScoreTable(selectElement.closest('.container').id);
 }
 
 function updateOverallAverageScore() {
     let totalScore = 0;
     let numberOfScores = 0;
-
-    // Iterate over each score in the summary table except for hidden rows
     document.querySelectorAll('#scoreSummary tbody tr').forEach(row => {
-        // Check if the row is displayed by checking its style
         if (row.style.display !== 'none') {
             let score = parseFloat(row.cells[1].textContent);
             if (!isNaN(score)) {
@@ -1171,85 +1108,38 @@ function updateOverallAverageScore() {
             }
         }
     });
-
-    // Calculate the average score only for displayed (visible) scores
     let averageScore = numberOfScores > 0 ? (totalScore / numberOfScores).toFixed(2) : 0;
-
-    // Display the average score in the designated element
     document.getElementById('displayAverageScore').textContent = averageScore;
 }
-
 
 function updateScoreTable(containerId) {
     var container = document.getElementById(containerId);
     var selects = container.querySelectorAll('select');
     var totalScore = 0;
     var scoredSelects = 0;
-
     selects.forEach(function(select) {
         if (select.value !== "N/A") {
             totalScore += parseInt(select.value, 10);
             scoredSelects++;
         }
     });
-
     var averageScore = scoredSelects > 0 ? (totalScore / scoredSelects).toFixed(2) : 0;
-
-    // Update the corresponding score in the summary table
     var scoreCellId = 'total' + containerId;
     var scoreCell = document.getElementById(scoreCellId);
     if (scoreCell) {
         scoreCell.textContent = averageScore;
         scoreCell.closest('tr').style.display = scoredSelects > 0 ? '' : 'none';
     }
-
     updateOverallAverageScore();
-
-    // Also decide to show or hide in radar chart dynamically
-    generateRadarChart();
 }
 
-function getAverageScoresAndLabels() {
-    var averageScores = [];
-    var labels = [];
-    document.querySelectorAll('#scoreSummary tbody tr').forEach(function(row) {
-        if (row.style.display !== 'none') {
-            var section = row.cells[0].textContent;
-            var score = parseFloat(row.cells[1].textContent);
-            labels.push(section);
-            averageScores.push(score);
-        }
-    });
-    return { labels, averageScores };
-}
-
- function determineBackgroundColor(averageScores) {
-    const total = averageScores.reduce((acc, score) => acc + score, 0);
-    const averageScore = total / averageScores.length;
-
-    if (averageScore <= 4) {
-        return 'rgba(232, 232, 232, 0.6)'; // Changed from Red to grey for low scores
-    } else if (averageScore <= 7) {
-        return 'rgba(232, 232, 232, 0.6)'; // Changed from amber to grey for medium scores
-    } else {
-        return 'rgba(232, 232, 232, 0.6)'; // Changed from green to grey for high scores
-    }
-}
-
-function generateRadarChart() {
+function generateStellarChart() {
     var ctx = document.getElementById('myRadarChart').getContext('2d');
-
-    // Check and destroy the existing chart instance to prevent errors
     if (window.myRadarChart && typeof window.myRadarChart.destroy === 'function') {
         window.myRadarChart.destroy();
     }
-
-    // Retrieve data for the new chart
     var { labels, averageScores } = getAverageScoresAndLabels();
-
     const backgroundColor = determineBackgroundColor(averageScores);
-
-    // Radar Chart Configuration
     window.myRadarChart = new Chart(ctx, {
         type: 'radar',
         data: {
@@ -1259,6 +1149,10 @@ function generateRadarChart() {
                 data: averageScores,
                 backgroundColor: backgroundColor,
                 borderColor: 'rgba(0, 0, 0, 0)',
+                pointBackgroundColor: 'rgba(255, 99, 132, 0.8)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(255, 99, 132, 1)'
             }]
         },
         options: {
@@ -1267,7 +1161,11 @@ function generateRadarChart() {
                     beginAtZero: true,
                     max: 10,
                     angleLines: {
-                        display: true
+                        display: true,
+                        color: 'rgba(0, 0, 0, 0.2)'
+                    },
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.2)'
                     },
                     ticks: {
                         color: "#000000",
@@ -1285,7 +1183,7 @@ function generateRadarChart() {
             },
             plugins: {
                 legend: {
-                    display: false, // Disable the default legend
+                    display: false,
                 },
                 title: {
                     display: true,
@@ -1298,78 +1196,62 @@ function generateRadarChart() {
             }
         }
     });
-
-    // Custom Legend Display
-    // Legend HTML content
-    //const legendHtml = `
-    //    <div class="custom-legend">
-    //        <h4>Score Legend</h4>
-    //        <ul>
-    //            <li><span style="background-color: rgba(255, 0, 0, 0.2);">&nbsp;&nbsp;&nbsp;&nbsp;</span> Red: 0-4 (Low)</li>
-    //            <li><span style="background-color: rgba(255, 165, 0, 0.2);">&nbsp;&nbsp;&nbsp;&nbsp;</span> Amber: 5-8 (Medium)</li>
-    //            <li><span style="background-color: rgba(0, 128, 0, 0.2);">&nbsp;&nbsp;&nbsp;&nbsp;</span> Green: 9-10 (High)</li>
-    //        </ul>
-    //    </div>
-    //`;
-
-    // Insert the legend into the legend-container
-    document.getElementById('legend-container').innerHTML = legendHtml;
-
-
-    // Make the download button visible
     document.getElementById('downloadResultsButton').style.display = 'block';
 }
 
-function downloadResultsWithCalculatedTable() {
-    // Get the organization name from the input field
-    let organizationName = document.getElementById('organisationName').value.trim();
-
-    // Initialize CSV data array with header, including the organization name at the top
-    let data = [['Organization Name', organizationName], ['', ''], ['Section', 'Question', 'Raw Score', 'Output Score']];
-
-    // Iterate over each container to collect scores and outputs
-    document.querySelectorAll('.container').forEach(function(container) {
-        let sectionName = container.querySelector('h1').textContent.trim();
-
-        // Collect data from each question within the section
-        container.querySelectorAll('select').forEach(function(select, index) {
-            // let questionLabel = select.closest('div.question, div').querySelector('h4, p').textContent.trim();
-            let questionLabel = select.closest('div.question, div').querySelector('h4').textContent.trim();
-            let rawScore = select.options[select.selectedIndex].text;
-            let outputScore = container.querySelectorAll('.output-score span')[index]?.textContent.trim() || ''; // Adjust if necessary
-
-            // Add row for each question
-            data.push([sectionName, questionLabel, rawScore, outputScore]);
-        });
+function getAverageScoresAndLabels() {
+    var averageScores = [];
+    var labels = [];
+    document.querySelectorAll('#scoreSummary tbody tr').forEach(function(row) {
+        if (row.style.display !== 'none') {
+            var section = row.cells[0].textContent;
+            var score = parseFloat(row.cells[1].textContent);
+            labels.push(section);
+            averageScores.push(score);
+        }
     });
+    return { labels, averageScores };
+}
 
-    // Add a separator row before the summary
+function determineBackgroundColor(averageScores) {
+    const total = averageScores.reduce((acc, score) => acc + score, 0);
+    const averageScore = total / averageScores.length;
+    if (averageScore <= 4) {
+        return 'rgba(232, 232, 232, 0.6)';
+    } else if (averageScore <= 7) {
+        return 'rgba(232, 232, 232, 0.6)';
+    } else {
+        return 'rgba(232, 232, 232, 0.6)';
+    }
+}
+
+function downloadResultsWithCalculatedTable() {
+    let organizationName = document.getElementById('organisationName').value.trim();
+    let data = [['Organization Name', organizationName], ['', ''], ['Section', 'Question', 'Raw Score', 'Output Score']];
+    document.querySelectorAll('.container select').forEach(function(select) {
+        let sectionName = select.closest('.container').querySelector('h1').textContent.trim();
+        let questionLabel = select.closest('div.question, div').querySelector('h4').textContent.trim();
+        let rawScore = select.options[select.selectedIndex].text;
+        let outputScore = select.closest('.container').querySelectorAll('.output-score span')[select.dataset.index]?.textContent.trim() || '';
+        data.push([sectionName, questionLabel, rawScore, outputScore]);
+    });
     data.push(['', '', '', '']);
     data.push(['Summary Section', 'Average Score']);
-
-    // Add the calculated table data
     document.querySelectorAll('#scoreSummary tbody tr').forEach(function(row) {
         let section = row.cells[0].textContent.trim();
         let averageScore = row.cells[1].textContent.trim();
-
         data.push([section, averageScore]);
     });
-
-    // Format data as CSV with fields enclosed in double quotes and internal double quotes escaped
     let csvContent = data.map(row => row.map(field => `"${field.replace(/"/g, '""')}"`).join(",")).join("\n");
-
-    // Trigger download
     let blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     let link = document.createElement("a");
     let url = URL.createObjectURL(blob);
     link.setAttribute("href", url);
     link.setAttribute("download", "Impact Diagnostic Assessment Scores.csv");
-    document.body.appendChild(link); // Required for FF
+    document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link); // Clean up
+    document.body.removeChild(link);
 }
-
-
 </script>
 
 </body>
