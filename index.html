@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 <title>Impact Diagnosis Assessment Tool</title>
 <link href="https://trst.uk/css/app.css" rel="stylesheet">
 <script src="https://kit.fontawesome.com/19a0336ebe.js" crossorigin="anonymous"></script>
@@ -1060,13 +1061,13 @@
         <h2>Overall Average Score: <span id="displayAverageScore">0</span></h2>
     </div>
 
-    <button onclick="generateStellarChart()">Generate Chart</button>
+    <button onclick="generatePolarChart()">Generate Polar Chart</button>
     <button id="downloadResultsButton" onclick="downloadResultsWithCalculatedTable()">Download Complete Results</button>
 </div>
 
 <!-- Radar Chart Container -->
 <div class="chart-container">
-    <canvas id="myRadarChart" width="800" height="800"></canvas>
+    <canvas id="myPolarChart" width="800" height="800"></canvas>
     <div id="legend-container"></div>
 </div>
 
@@ -1133,26 +1134,24 @@ function updateScoreTable(containerId) {
     updateOverallAverageScore();
 }
 
-function generateStellarChart() {
-    var ctx = document.getElementById('myRadarChart').getContext('2d');
-    if (window.myRadarChart && typeof window.myRadarChart.destroy === 'function') {
-        window.myRadarChart.destroy();
+function generatePolarChart() {
+    var ctx = document.getElementById('myPolarChart').getContext('2d');
+    if (window.myPolarChart && typeof window.myPolarChart.destroy === 'function') {
+        window.myPolarChart.destroy();
     }
     var { labels, averageScores } = getAverageScoresAndLabels();
-    const backgroundColor = determineBackgroundColor(averageScores);
-    window.myRadarChart = new Chart(ctx, {
-        type: 'radar',
+    const backgroundColors = averageScores.map(score => determineBackgroundColor(score));
+    window.myPolarChart = new Chart(ctx, {
+        type: 'polarArea',
         data: {
             labels: labels,
             datasets: [{
                 label: 'Average Scores',
                 data: averageScores,
-                backgroundColor: backgroundColor,
-                borderColor: 'rgba(0, 0, 0, 0)',
-                pointBackgroundColor: 'rgba(255, 99, 132, 0.8)',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgba(255, 99, 132, 1)'
+                backgroundColor: backgroundColors,
+                borderColor: '#fff',
+                hoverBackgroundColor: 'rgba(255, 99, 132, 0.8)',
+                hoverBorderColor: '#fff'
             }]
         },
         options: {
@@ -1160,13 +1159,6 @@ function generateStellarChart() {
                 r: {
                     beginAtZero: true,
                     max: 10,
-                    angleLines: {
-                        display: true,
-                        color: 'rgba(0, 0, 0, 0.2)'
-                    },
-                    grid: {
-                        color: 'rgba(0, 0, 0, 0.2)'
-                    },
                     ticks: {
                         color: "#000000",
                         font: {
@@ -1192,9 +1184,33 @@ function generateStellarChart() {
                     font: {
                         size: 20
                     }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.label || '';
+                            let value = context.raw || 0;
+                            return `${label}: ${value}`;
+                        }
+                    }
+                },
+                datalabels: {
+                    display: true,
+                    color: 'black',
+                    formatter: function(value, context) {
+                        return context.chart.data.labels[context.dataIndex];
+                    },
+                    font: {
+                        weight: 'bold',
+                        size: 14 // Adjust the size as needed
+                    },
+                    anchor: 'end',
+                    align: 'end',
+                    offset: 20
                 }
             }
-        }
+        },
+        plugins: [ChartDataLabels]
     });
     document.getElementById('downloadResultsButton').style.display = 'block';
 }
@@ -1213,15 +1229,13 @@ function getAverageScoresAndLabels() {
     return { labels, averageScores };
 }
 
-function determineBackgroundColor(averageScores) {
-    const total = averageScores.reduce((acc, score) => acc + score, 0);
-    const averageScore = total / averageScores.length;
-    if (averageScore <= 4) {
-        return 'rgba(232, 232, 232, 0.6)';
-    } else if (averageScore <= 7) {
-        return 'rgba(232, 232, 232, 0.6)';
+function determineBackgroundColor(score) {
+    if (score <= 4) {
+        return 'rgba(232, 99, 99, 0.6)'; // Red for low scores
+    } else if (score <= 7) {
+        return 'rgba(255, 206, 86, 0.6)'; // Amber for medium scores
     } else {
-        return 'rgba(232, 232, 232, 0.6)';
+        return 'rgba(75, 192, 192, 0.6)'; // Green for high scores
     }
 }
 
